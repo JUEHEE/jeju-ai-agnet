@@ -194,14 +194,9 @@ function PriceChart({ item, r }: { item: Item; r?: SupportResult }) {
   );
 }
 
+/** 채소 바구니 그림: Figma 대시보드의 "Vegetable Basket"(node 43:180)을 SVG로 내보낸 것 */
 const Crate = () => (
-  <svg viewBox="0 0 200 90" style={{ width: "100%", maxHeight: 96 }} aria-hidden="true">
-    <rect x="40" y="40" width="120" height="40" rx="4" fill="#D9A066" />
-    <rect x="40" y="52" width="120" height="6" fill="#B07A45" />
-    <rect x="40" y="66" width="120" height="6" fill="#B07A45" />
-    <circle cx="75" cy="34" r="14" fill="#E9D3A6" />
-    <circle cx="100" cy="30" r="15" fill="#B5492F" />
-    <circle cx="125" cy="34" r="13" fill="#E8C98E" />
-    <path d="M135 22l10-12 4 4-9 12z" fill="#6DAF6A" />
-  </svg>
+  <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", minHeight: 120 }}>
+    <img src="/illust/basket.svg" alt="" aria-hidden="true" width={111} height={111} />
+  </div>
 );
