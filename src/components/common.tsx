@@ -67,5 +67,10 @@ const PHOTOS: Record<string, string> = {
 
 export const ItemPic = ({ item }: { item: string }) => <img className="pic" src={PHOTOS[item]} alt={`${item} 사진`} width={104} height={104} />;
 
+/** 목록용 동그란 품목 사진 (지난 결과, 신청 안내) */
+export const ItemAvatar = ({ item, size = 44 }: { item: string; size?: number }) => (
+  <img className="avatar" src={PHOTOS[item]} alt="" aria-hidden="true" width={size} height={size} style={{ width: size, height: size }} />
+);
+
 export const ErrorBox = ({ msg }: { msg?: string }) => (msg ? <div className="errbox" role="alert">{msg}</div> : null);
 export const Skeleton = ({ h = 60 }: { h?: number }) => <div className="skeleton" style={{ minHeight: h }} aria-hidden="true" />;
