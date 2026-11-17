@@ -48,38 +48,15 @@ export function Logo({ size = 46, className }: { size?: number; className?: stri
   );
 }
 
-const PICS: Record<string, JSX.Element> = {
-  양배추: (
-    <>
-      <circle cx="48" cy="50" r="34" fill="#9CC98A" />
-      <path d="M48 18c-14 10-14 54 0 64M48 18c14 10 14 54 0 64M20 44q28-12 56 0" stroke="#5E9A54" strokeWidth="3" fill="none" />
-    </>
-  ),
-  월동무: (
-    <>
-      <path d="M38 30q10-4 20 0l-4 52q-6 8-12 0z" fill="#F3F1E6" stroke="#CFC8B0" strokeWidth="2" />
-      <path d="M48 30q-6-16-16-20M48 30q4-18 14-22M48 30q0-16 2-24" stroke="#5E9A54" strokeWidth="5" fill="none" strokeLinecap="round" />
-    </>
-  ),
-  당근: (
-    <>
-      <path d="M36 34h24l-10 52q-2 4-4 0z" fill="#F08A24" />
-      <path d="M48 34q-8-14-18-16M48 34q2-16 12-20M48 34q0-14 0-22" stroke="#5E9A54" strokeWidth="5" fill="none" strokeLinecap="round" />
-    </>
-  ),
-  조생양파: (
-    <>
-      <path d="M48 22q26 18 20 46q-6 16-20 16q-14 0-20-16q-6-28 20-46z" fill="#E7C27F" />
-      <path d="M48 22v-10M38 60q10 6 20 0" stroke="#A8823F" strokeWidth="3" fill="none" />
-    </>
-  ),
+/** 품목 사진: public/items/ (위키미디어 공용 CC0·퍼블릭 도메인, 출처는 public/items/CREDITS.md) */
+const PHOTOS: Record<string, string> = {
+  양배추: "/items/cabbage.jpg",
+  월동무: "/items/radish.jpg",
+  당근: "/items/carrot.jpg",
+  조생양파: "/items/onion.jpg",
 };
 
-export const ItemPic = ({ item }: { item: string }) => (
-  <svg className="pic" viewBox="0 0 96 96" aria-hidden="true">
-    {PICS[item]}
-  </svg>
-);
+export const ItemPic = ({ item }: { item: string }) => <img className="pic" src={PHOTOS[item]} alt={`${item} 사진`} width={104} height={104} />;
 
 export const ErrorBox = ({ msg }: { msg?: string }) => (msg ? <div className="errbox" role="alert">{msg}</div> : null);
 export const Skeleton = ({ h = 60 }: { h?: number }) => <div className="skeleton" style={{ minHeight: h }} aria-hidden="true" />;

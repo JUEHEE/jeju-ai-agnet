@@ -67,7 +67,7 @@ h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
 .card h3 { font-size: 16px; font-weight: 800; }
 .card .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .itemcard { align-items: center; justify-content: center; background: var(--leaf); border-color: transparent; }
-.itemcard .pic { width: 104px; height: 104px; border-radius: 50%; background: #fff; padding: 6px; }
+.itemcard .pic { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; background: #fff; border: 4px solid #fff; box-shadow: var(--shadow); }
 .itemcard .name { font-size: 20px; font-weight: 800; }
 .pager { display: flex; align-items: center; gap: 14px; font-weight: 700; }
 .pager button { border: 0; background: none; font-size: 18px; padding: 2px 8px; }
