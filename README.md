@@ -60,7 +60,7 @@ API 호출은 모두 `src/api/endpoints.ts`에 있습니다.
 | 5 | 확률 숫자 숨김, 라벨·색은 ui.json | `config/ui.json`, `lib/rules.ts` |
 | 6 | 판정 → 배지 | `lib/rules.ts` `supportBadge` |
 | 7 | 고지 문구 | 홈 하단, 채팅 지원 가능성·비교·공고 카드 뒤 |
-| 8 | 경고 → 쉬운 문구 | `lib/rules.ts` `plainWarnings` (CHAT_SPEC 6절 표) |
+| 8 | 경고 → 쉬운 문구 | `lib/rules.ts` `plainWarnings` (CHAT_SPEC 6절 표 + 표에 없던 3개는 프론트에서 문구를 정함) |
 | 9 | 신청 시작일 두 값 | `lib/rules.ts` `applyPeriod` → "4월 14일 또는 4월 21일 ~ 4월 28일 (시작일 확인 필요)" |
 | 10 | 서비스 이름 | `ui.json`의 `service_name` = "바당 PASS" (null이면 임시 이름으로 돌아감) |
 
