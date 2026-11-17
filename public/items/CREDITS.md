@@ -7,5 +7,5 @@
 |---|---|---|---|
 | cabbage.jpg | 양배추 | https://commons.wikimedia.org/wiki/File:Cabbage_in_a_stack.jpg | CC0 |
 | radish.jpg | 월동무 | https://commons.wikimedia.org/wiki/File:Korean_radishes_at_Asian_supermarket_in_New_Jersey.jpg | CC0 |
-| carrot.jpg | 당근 | https://commons.wikimedia.org/wiki/File:Vegetable-Carrot-Bundle-wStalks.jpg | 퍼블릭 도메인 |
+| carrot.jpg | 당근 | https://commons.wikimedia.org/wiki/File:Carrots_in_Freiburg_-_DSC06503.jpg | CC0 |
 | onion.jpg | 조생양파 | https://commons.wikimedia.org/wiki/File:Yellow_onion_🧅.jpg | CC0 |
