@@ -1,0 +1,68 @@
+/* 지난 결과·신청 안내 페이지 (토스 스타일): 큰 제목, 넉넉한 여백, 표 대신 한 줄씩 읽히는 목록.
+   글자 크기는 rem 이라 '큰 글씨'를 켜면 같이 커진다. */
+.page { display: flex; flex-direction: column; gap: 20px; max-width: 880px; width: 100%; }
+.page-head h1 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; }
+.page-head p { margin: 6px 0 0; color: var(--ink-3); font-size: 0.9375rem; }
+
+.sheet { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 22px 24px; min-width: 0; }
+.sheet > h2 { font-size: 1.1875rem; font-weight: 800; letter-spacing: -0.01em; margin: 0; }
+.sheet > .desc { color: var(--ink-3); font-size: 0.875rem; margin: 4px 0 0; }
+.sheet > h2 + .rows, .sheet > h2 + .facts, .sheet > .desc + .rows, .sheet > .desc + .facts { margin-top: 8px; }
+
+.hero { background: #eef4ff; border-color: transparent; }
+.hero .eyebrow { color: #3182f6; font-weight: 700; font-size: 0.875rem; }
+.hero .big { font-size: 1.375rem; font-weight: 800; line-height: 1.45; letter-spacing: -0.01em; margin-top: 6px; }
+.hero .sub { color: var(--ink-2); font-size: 0.9375rem; margin-top: 10px; line-height: 1.6; }
+
+/* 한 줄 목록 */
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows > li { display: flex; align-items: center; gap: 14px; padding: 14px 0; }
+.rows > li + li { border-top: 1px solid #f2f4f6; }
+.rows .body { flex: 1; min-width: 0; }
+.rows .t { font-size: 1rem; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.rows .s { font-size: 0.875rem; color: var(--ink-3); margin-top: 2px; line-height: 1.5; }
+.rows .end { text-align: right; font-weight: 700; font-size: 0.9375rem; white-space: nowrap; flex: none; }
+.rows .end small { display: block; font-weight: 500; font-size: 0.75rem; color: var(--ink-3); }
+.avatar { border-radius: 50%; object-fit: cover; flex: none; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05); }
+.season-h { font-size: 0.875rem; font-weight: 700; color: var(--ink-3); margin: 18px 0 0; }
+.season-h:first-of-type { margin-top: 4px; }
+
+/* 이름 - 값 줄 */
+.facts { margin: 0; }
+.facts > div { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 14px 0; }
+.facts > div + div { border-top: 1px solid #f2f4f6; }
+.facts dt { color: var(--ink-3); font-size: 0.9375rem; flex: none; }
+.facts dd { margin: 0; font-size: 0.9375rem; font-weight: 600; text-align: right; line-height: 1.5; }
+.facts a { color: #3182f6; text-decoration: none; }
+
+.infobox { background: var(--surface-2); border-radius: 14px; padding: 14px 16px; font-size: 0.875rem; color: var(--ink-2); display: grid; gap: 6px; margin-top: 12px; line-height: 1.55; }
+.infobox.err { background: #fbe7e5; color: #b0352c; }
+
+/* 품목 필터 */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filters button { border: 0; background: var(--surface); border-radius: 999px; padding: 6px 14px 6px 6px; font-weight: 700; font-size: 0.875rem; display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--line); }
+.filters button.all { padding-left: 14px; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: #fff; box-shadow: none; }
+
+/* 요약 숫자 */
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.stats > div { background: rgba(255, 255, 255, 0.7); border-radius: 14px; padding: 12px 14px; }
+.stats b { display: block; font-size: 1.375rem; font-weight: 800; }
+.stats span { font-size: 0.8125rem; color: var(--ink-3); }
+
+/* 서류 체크 */
+.progress { height: 8px; border-radius: 4px; background: #f2f4f6; overflow: hidden; margin: 12px 0 2px; }
+.progress > i { display: block; height: 100%; background: #3182f6; border-radius: 4px; transition: width 0.2s; }
+.rows > li.check { cursor: pointer; }
+.rows > li.check:hover .t { color: #3182f6; }
+.circle-check { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #d1d6db; flex: none; display: grid; place-items: center; background: #fff; }
+.circle-check.on { background: #3182f6; border-color: #3182f6; }
+.tag { display: inline-block; font-size: 0.75rem; font-weight: 700; color: #3182f6; background: #e8f3ff; border-radius: 6px; padding: 1px 6px; margin-left: 6px; vertical-align: 2px; }
+.num-badge { width: 28px; height: 28px; border-radius: 50%; background: #f2f4f6; color: var(--ink-2); font-weight: 800; font-size: 0.8125rem; display: grid; place-items: center; flex: none; }
+
+@media (max-width: 620px) {
+  .sheet { padding: 18px 16px; }
+  .stats { grid-template-columns: 1fr; }
+  .facts > div { flex-direction: column; gap: 4px; }
+  .facts dd { text-align: left; }
+}
