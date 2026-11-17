@@ -5,6 +5,9 @@
 
 React + Vite + TypeScript. 차트는 외부 라이브러리 없이 SVG로 그립니다.
 
+**배포 링크:** https://jeju-ai-agnet.vercel.app (Vercel, `main`에 merge하면 자동 배포)
+배포된 화면은 백엔드 서버 없이 목업 데이터(`docs/api_examples` 응답)로 동작합니다.
+
 ## 실행
 
 ```bash
