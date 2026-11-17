@@ -35,15 +35,24 @@ export function Ring({ b, p }: { b: BadgeT; p?: number | null }) {
   );
 }
 
+/** 바당 PASS 로고: Figma 왼쪽 메뉴의 귤 캐릭터(node 43:16)를 SVG로 내보낸 것 (47×53) */
 export function Logo({ size = 46, className }: { size?: number; className?: string }) {
+  return <img className={className} src="/illust/logo.svg" alt="" aria-hidden="true" width={size} height={Math.round((size * 53) / 47)} />;
+}
+
+/** 체크리스트 아이콘 (Figma 신청 자격 카드): 연한 원 + 체크 / 느낌표 */
+export function CheckIcon({ kind = "ok" }: { kind?: "ok" | "warn" }) {
+  const ok = kind === "ok";
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
-      <circle cx="24" cy="27" r="17" fill="#F5A044" />
-      <path d="M24 10c2-5 8-6 11-4-2 4-7 6-11 4z" fill="#3E9B5B" />
-      <rect x="7" y="23" width="34" height="6" fill="#F8D29A" opacity=".8" />
-      <circle cx="18" cy="30" r="1.8" fill="#5A3A1A" />
-      <circle cx="30" cy="30" r="1.8" fill="#5A3A1A" />
-      <path d="M20 35q4 3 8 0" stroke="#5A3A1A" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+    <svg width="18" height="18" viewBox="0 0 18.4 18.4" aria-label={ok ? "충족" : "주의"} role="img" style={{ flex: "none", marginTop: 1 }}>
+      <circle cx="9.2" cy="9.2" r="9.2" fill={ok ? "#E8F3FF" : "#FFF3DA"} />
+      {ok ? (
+        <path d="M5.25 9.15L8.15 12.05L13.35 6.25" stroke="#1B64DA" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      ) : (
+        <text x="9.2" y="13.6" textAnchor="middle" fontSize="12" fontWeight="800" fill="#E8930C">
+          !
+        </text>
+      )}
     </svg>
   );
 }
