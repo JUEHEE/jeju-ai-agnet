@@ -140,7 +140,7 @@ function ChatCard({ c, onAction }: { c: Card; onAction: (a: CardAction) => void 
       {(c.badge || c.subtitle) && (
         <div className="row">
           {c.badge ? <Badge b={c.badge} /> : <span />}
-          <span className="muted" style={{ fontSize: 11.5 }}>
+          <span className="muted" style={{ fontSize: "0.7188rem" }}>
             {c.subtitle}
           </span>
         </div>
@@ -182,7 +182,7 @@ function ChatCard({ c, onAction }: { c: Card; onAction: (a: CardAction) => void 
                   )}
                 </span>
               </div>
-              {r.summary && <div className="sum num" style={{ fontSize: 12 }}>{r.summary}</div>}
+              {r.summary && <div className="sum num" style={{ fontSize: "0.75rem" }}>{r.summary}</div>}
             </div>
           ))}
         </div>
@@ -204,7 +204,7 @@ function ChatCard({ c, onAction }: { c: Card; onAction: (a: CardAction) => void 
       )}
 
       {c.type === "eligibility" && c.rows && (
-        <div style={{ display: "grid", gap: 3, fontSize: 12 }}>
+        <div style={{ display: "grid", gap: 3, fontSize: "0.75rem" }}>
           {c.rows.map((r) => (
             <div className="row" key={r.id}>
               <span>{r.rule}</span>
@@ -233,7 +233,7 @@ function ChatCard({ c, onAction }: { c: Card; onAction: (a: CardAction) => void 
       )}
 
       {c.facts && (
-        <dl className="kv" style={{ fontSize: 12.5 }}>
+        <dl className="kv" style={{ fontSize: "0.7812rem" }}>
           {c.facts.map((f) => (
             <FactRow key={f.label + f.display} label={f.label} display={f.display} />
           ))}
@@ -277,7 +277,7 @@ function CardChart({ chart }: { chart: NonNullable<Card["chart"]> }) {
   return (
     <>
       <LineChart pts={pts} bep={bep} w={340} h={180} />
-      <div className="muted" style={{ fontSize: 11.5 }}>
+      <div className="muted" style={{ fontSize: "0.7188rem" }}>
         <span style={{ color: "#B0352C", fontWeight: 700 }}>- - {chart.reference_line?.name ?? "지원 기준"}</span> · {main.name}
       </div>
     </>
