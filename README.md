@@ -1,6 +1,6 @@
-# 제주 농산물 물류비 도우미 — 프론트엔드
+# 바당 PASS — 프론트엔드
 
-물류비 지원 예측 API(백엔드 `jeju_engine` + FastAPI)를 화면에 연결한 대시보드입니다.
+제주 농산물 물류비 지원 예측 서비스 **바당 PASS**의 프론트엔드. 물류비 지원 예측 API(백엔드 `jeju_engine` + FastAPI)를 화면에 연결한 대시보드입니다.
 화면 구성은 Figma 대시보드(node 1:844)를 따르고, API 사용법과 규칙은 백엔드 전달 문서(`docs/handoff/`)를 따릅니다.
 
 React + Vite + TypeScript. 차트는 외부 라이브러리 없이 SVG로 그립니다.
@@ -62,7 +62,7 @@ API 호출은 모두 `src/api/endpoints.ts`에 있습니다.
 | 7 | 고지 문구 | 홈 하단, 채팅 지원 가능성·비교·공고 카드 뒤 |
 | 8 | 경고 → 쉬운 문구 | `lib/rules.ts` `plainWarnings` (CHAT_SPEC 6절 표) |
 | 9 | 신청 시작일 두 값 | `lib/rules.ts` `applyPeriod` → "4월 14일 또는 4월 21일 ~ 4월 28일 (시작일 확인 필요)" |
-| 10 | 서비스 이름 미정 | `ui.json`의 `service_name`이 null이면 임시 이름 |
+| 10 | 서비스 이름 | `ui.json`의 `service_name` = "바당 PASS" (null이면 임시 이름으로 돌아감) |
 
 ## 설정 바꾸기
 
@@ -72,4 +72,4 @@ API 호출은 모두 `src/api/endpoints.ts`에 있습니다.
 
 - 채팅 API `POST /api/agent/chat`: 백엔드에 생기면 코드 수정 없이 자동으로 실제 답변을 씁니다. 그 전에는 질문을 규칙으로 분류해 `docs/chat_examples`의 예시 답변을 보여주고, 채팅 위에 `예시 답변` 표시가 붙습니다.
 - 메뉴의 `검색`, `내 정보`: Figma에 있지만 기능이 정해지지 않아 비활성화했습니다.
-- 서비스 이름.
+

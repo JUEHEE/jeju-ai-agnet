@@ -1,6 +1,6 @@
 {
   "_about": "화면·채팅 표시 설정. 백엔드(api/chat_cards.py)와 프로토타입이 이 파일을 함께 읽는다. 값만 바꾸면 라벨·색·표시 방식이 전체에 반영된다.",
-  "service_name": null,
+  "service_name": "바당 PASS",
   "service_name_fallback": "제주 농산물 물류비 도우미",
   "show_probability": false,
   "chart_cards_in_chat": true,
