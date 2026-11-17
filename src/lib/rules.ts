@@ -58,6 +58,10 @@ const WARNING_TABLE: [string, string | null][] = [
   ["검증된 범위 밖", "너무 먼 달이라 예측이 정확하지 않을 수 있어요."],
   ["이미 공고된 달", null],
   ["mode=replay", null],
+  // 아래 3개는 CHAT_SPEC 표에 없던 경고라 프론트에서 쉬운 문구를 정했다 (2026-11-17, 백엔드에 공유)
+  ["그 시점에 알 수 있던 정보만 사용", "이 날짜까지 알 수 있던 정보로만 계산했어요."],
+  ["개별 농가는 직접 신청 주체가 아니며", "개별 농가는 직접 신청할 수 없어요. 소속 농협이나 영농조합법인이 신청하고, 지원금은 출하한 농가에 지급돼요."],
+  ["observed_years", "달마다 쌓인 자료 기간이 달라서, 거래가 적은 달은 참고로만 봐 주세요."],
 ];
 
 export function plainWarnings(warnings: string[] | undefined): string[] {

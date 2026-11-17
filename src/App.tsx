@@ -9,7 +9,7 @@ import { Logo } from "./components/common";
 import { Home } from "./components/Home";
 import { Results } from "./components/Results";
 import { dateKR } from "./lib/format";
-import { SHORT, supportBadge, tone } from "./lib/rules";
+import { SHORT, plainWarnings, supportBadge, tone } from "./lib/rules";
 import { useApi } from "./lib/useApi";
 
 type View = "home" | "results" | "apply";
@@ -120,7 +120,10 @@ export default function App() {
                 ▶
               </button>
               <span className="d num">{dateKR(demoAsOf)}</span>
-              <span className="muted">시연: 그날까지 알 수 있던 정보만 사용</span>
+              <span className="muted">
+                {/* 슬라이더 API(replay)의 경고도 빠짐없이 표시 (규칙 8). 응답 전에는 같은 뜻의 기본 안내 */}
+                시연: {(replay.data && plainWarnings(replay.data.warnings).join(" ")) || "그날까지 알 수 있던 정보만 사용"}
+              </span>
               {replay.error && <span className="errbox" style={{ flexBasis: "100%" }}>{replay.error}</span>}
             </>
           ) : (

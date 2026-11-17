@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { callTool, chat } from "../api/endpoints";
 import type { Card, CardAction, ChatContext } from "../api/types";
 import { toolResultToCard } from "../lib/cards";
-import { DISCLAIMER, SERVICE_NAME, SERVICE_NAME_PENDING, UI } from "../lib/rules";
+import { DISCLAIMER, SERVICE_NAME, SERVICE_NAME_PENDING, UI, plainWarnings } from "../lib/rules";
 import { BarChart, LineChart, type LinePoint } from "./Charts";
 import { Badge, Logo } from "./common";
 
@@ -244,7 +244,7 @@ function ChatCard({ c, onAction }: { c: Card; onAction: (a: CardAction) => void 
 
       {c.notes && c.notes.length > 0 && (
         <ul className="notes">
-          {c.notes.map((n) => (
+          {plainWarnings(c.notes).map((n) => (
             <li key={n}>{n}</li>
           ))}
         </ul>

@@ -213,7 +213,7 @@ export function toolResultToCard(call: ToolCall, env: Envelope<any>): Card | nul
           series: [{ name: "월평균 거래량(톤)", values: r.months.map((m: any) => m.mean_volume_ton) }],
           highlight: r.top_months.map((m: number) => `${m}월`),
         },
-        notes: ["거래가 많은 달과 물류비 지원 대상 달은 달라요.", ...notes.filter((n) => !n.includes("observed_years"))],
+        notes: ["거래가 많은 달과 물류비 지원 대상 달은 달라요.", ...notes],
         lead: `${[...r.top_months].sort((a: number, b: number) => a - b).map((m: number) => `${m}월`).join(", ")}에 거래가 가장 많아요.`,
       };
     case "analyze_volume":
