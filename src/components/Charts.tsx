@@ -117,7 +117,7 @@ export function LineChart({ pts, bep, bepLabel, w = 560, h = 230 }: { pts: LineP
       </svg>
       {tip && (
         <div
-          style={{ position: "absolute", left: `${tip.x}%`, top: `${tip.y}%`, transform: "translate(-50%,-150%)", background: "var(--ink)", color: "var(--surface)", fontSize: 12, padding: "4px 8px", borderRadius: 8, pointerEvents: "none", whiteSpace: "nowrap" }}
+          style={{ position: "absolute", left: `${tip.x}%`, top: `${tip.y}%`, transform: "translate(-50%,-150%)", background: "var(--ink)", color: "var(--surface)", fontSize: "0.75rem", padding: "4px 8px", borderRadius: 8, pointerEvents: "none", whiteSpace: "nowrap" }}
         >
           {tip.t}
         </div>

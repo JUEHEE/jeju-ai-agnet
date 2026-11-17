@@ -26,7 +26,7 @@ export default function App() {
   const [big, setBig] = useState(false);
 
   useEffect(() => {
-    document.body.classList.toggle("big", big);
+    document.documentElement.classList.toggle("big", big);
   }, [big]);
 
   // 시연 슬라이더: 그달 거래일 목록
