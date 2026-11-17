@@ -1,0 +1,116 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/docs-check",
+    "body": {
+      "item": "양배추",
+      "ym": "2026-03",
+      "docs": [
+        "D01",
+        "사업자등록증",
+        "법인등기부등본"
+      ],
+      "applicant_type": "영농조합법인"
+    }
+  },
+  "status": 200,
+  "response": {
+    "function": "check_docs",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "양배추",
+      "ym": "2026-03",
+      "rules_season": "2025/26",
+      "status": "목록 비교 완료",
+      "prepared": [
+        {
+          "id": "D01",
+          "name": "보조사업 신청 공문",
+          "prepared": true
+        },
+        {
+          "id": "D07",
+          "name": "사업자등록증",
+          "prepared": true
+        },
+        {
+          "id": "D08",
+          "name": "법인등기부등본",
+          "prepared": true
+        }
+      ],
+      "missing": [
+        {
+          "id": "D02",
+          "name": "지원신청서(서식1) 및 교부신청서(서식2)",
+          "prepared": false
+        },
+        {
+          "id": "D03",
+          "name": "사업계획서(서식3) 및 단체소개서(서식4)",
+          "prepared": false
+        },
+        {
+          "id": "D04",
+          "name": "해당품목 조합원(출하농가) 현황 및 농가별 출하내역(서식5)",
+          "note": "참여농가 20농가 이상이면 엑셀 파일로 제출",
+          "prepared": false
+        },
+        {
+          "id": "D05",
+          "name": "지방보조사업자 관리카드(서식6)",
+          "prepared": false
+        },
+        {
+          "id": "D06",
+          "name": "청렴이행서약서(서식7)",
+          "prepared": false
+        },
+        {
+          "id": "D09",
+          "name": "지방세납세증명서",
+          "note": "체납 여부 확인용",
+          "prepared": false
+        },
+        {
+          "id": "D10",
+          "name": "국세청 발행 최근 2년간 재무제표(손익계산서 포함)",
+          "prepared": false
+        },
+        {
+          "id": "D11",
+          "name": "월별 대상품목 출하 물량 증빙자료",
+          "prepared": false
+        },
+        {
+          "id": "D12",
+          "name": "자조금 가입 증명서",
+          "note": "농협은 명단 제출, 농업법인은 증명서 제출",
+          "prepared": false
+        },
+        {
+          "id": "D13",
+          "name": "법인 농업경영체등록확인서",
+          "prepared": false
+        },
+        {
+          "id": "D14",
+          "name": "법인 구성원 현황(서식8)",
+          "note": "5인 이상 농업인 증빙",
+          "prepared": false
+        }
+      ],
+      "unmatched_inputs": [],
+      "later": "보조금 전용통장 개설 및 자부담금 통장 예치 내역은 교부결정 전까지 별도 제출",
+      "note": "서류 보유 여부만 비교하며 서류 내용의 유효성·최종 접수 여부는 확인하지 않음"
+    },
+    "warnings": [],
+    "sources": [
+      "2026년 주요 농산물 물류비 지원사업 추진계획(안)",
+      "추진계획(안) 붙임2 사업대상자 모집 공고문(안), 2026.4.14. 자"
+    ]
+  }
+}

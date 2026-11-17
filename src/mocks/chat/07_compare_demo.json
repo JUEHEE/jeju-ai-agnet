@@ -1,0 +1,173 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "다른 품목은 어때요?",
+    "context": {
+      "as_of": "2026-03-14",
+      "mode": "replay"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "품목별로 비교해 봤어요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "compare",
+          "title": "이번 달 품목별 지원 가능성",
+          "subtitle": "3월 14일 기준",
+          "rows": [
+            {
+              "item": "양배추",
+              "badge": {
+                "code": "high",
+                "label": "지원 가능성 높음",
+                "tone": "positive",
+                "symbol": "✓"
+              },
+              "probability": {
+                "value": 0.913,
+                "display": "91%",
+                "show": false
+              },
+              "summary": "예상 5,182원 · 기준 6,116원",
+              "action": {
+                "id": "detail",
+                "label": "자세히",
+                "call": {
+                  "tool": "predict_support",
+                  "args": {
+                    "item": "양배추",
+                    "ym": "2026-03",
+                    "as_of": "2026-03-14",
+                    "mode": "replay"
+                  }
+                }
+              }
+            },
+            {
+              "item": "월동무",
+              "badge": {
+                "code": "uncertain",
+                "label": "아직 몰라요",
+                "tone": "caution",
+                "symbol": "!"
+              },
+              "probability": {
+                "value": 0.668,
+                "display": "67%",
+                "show": false
+              },
+              "summary": "예상 10,973원 · 기준 11,820원",
+              "action": {
+                "id": "detail",
+                "label": "자세히",
+                "call": {
+                  "tool": "predict_support",
+                  "args": {
+                    "item": "월동무",
+                    "ym": "2026-03",
+                    "as_of": "2026-03-14",
+                    "mode": "replay"
+                  }
+                }
+              }
+            },
+            {
+              "item": "당근",
+              "badge": {
+                "code": "uncertain",
+                "label": "아직 몰라요",
+                "tone": "caution",
+                "symbol": "!"
+              },
+              "probability": {
+                "value": 0.531,
+                "display": "53%",
+                "show": false
+              },
+              "summary": "예상 20,057원 · 기준 20,771원",
+              "action": {
+                "id": "detail",
+                "label": "자세히",
+                "call": {
+                  "tool": "predict_support",
+                  "args": {
+                    "item": "당근",
+                    "ym": "2026-03",
+                    "as_of": "2026-03-14",
+                    "mode": "replay"
+                  }
+                }
+              }
+            },
+            {
+              "item": "조생양파",
+              "badge": {
+                "code": "no_data",
+                "label": "출하 전",
+                "tone": "neutral",
+                "symbol": "–"
+              },
+              "probability": {
+                "value": null,
+                "display": null,
+                "show": false
+              },
+              "summary": null,
+              "action": {
+                "id": "detail",
+                "label": "자세히",
+                "call": {
+                  "tool": "predict_support",
+                  "args": {
+                    "item": "조생양파",
+                    "ym": "2026-03",
+                    "as_of": "2026-03-14",
+                    "mode": "replay"
+                  }
+                }
+              }
+            }
+          ],
+          "notes": [],
+          "lead": "품목별로 비교해 봤어요.",
+          "source": {
+            "function": "predict_support",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06",
+            "as_of": "2026-03-14"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "text": "최종 지원 여부는 제주도 공고로 확정돼요. 예측은 판단을 돕는 참고 정보예요.",
+        "style": "footnote"
+      }
+    ],
+    "suggestions": [
+      "양배추 자세히 볼래요",
+      "신청 기간이 언제예요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "predict_support",
+        "args": {
+          "item": "전체",
+          "ym": "2026-03",
+          "as_of": "2026-03-14",
+          "mode": "replay"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}

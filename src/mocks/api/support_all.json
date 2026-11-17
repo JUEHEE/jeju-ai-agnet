@@ -1,0 +1,204 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/support/all",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "predict_support",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "ym": "2026-11",
+      "as_of": "2026-10-31",
+      "items": [
+        {
+          "item": "양배추",
+          "ym": "2026-11",
+          "as_of": "2026-10-31",
+          "mode": "live",
+          "spec_kg": 8,
+          "status": "예측",
+          "observed_days": 0,
+          "remaining_days": 25,
+          "observed_mean_hub_per_spec": null,
+          "m_hat_hub_per_spec": 6801,
+          "m_hat_per_spec": 7740,
+          "interval_per_spec": [
+            5674,
+            10513
+          ],
+          "bep_per_spec": 6116,
+          "bep_season": "2025/26",
+          "p_below": 0.162,
+          "verdict": "낮음",
+          "in_support_period": true,
+          "announced": null,
+          "warnings": [
+            "2026/27 시즌 손익분기점 공고 전: 2025/26 시즌 기준 사용",
+            "관측 0일: 월 경계에서 가격 추세가 꺾이면 크게 틀릴 수 있음"
+          ],
+          "basis": {
+            "forecast": {
+              "observed_days": 0,
+              "remaining_days": 25,
+              "observed_mean_hub_per_spec": null,
+              "remaining_price_hub_per_spec": 6801,
+              "m_hat_hub_per_spec": 6801,
+              "available": true,
+              "last_trade_date": "2026-10-31"
+            },
+            "conversion": {
+              "ratio_mean": 1.1380633231260522,
+              "ratio_sd": 0.047543995020461194,
+              "n_months": 5
+            },
+            "probability": {
+              "p_below": 0.162,
+              "interval_per_spec": [
+                5674,
+                10513
+              ],
+              "verdict": "낮음",
+              "error_bucket_k": 0,
+              "multiplier_c": 1.2,
+              "n_sim": 20000
+            }
+          }
+        },
+        {
+          "item": "당근",
+          "ym": "2026-11",
+          "as_of": "2026-10-31",
+          "mode": "live",
+          "spec_kg": 20,
+          "status": "예측",
+          "observed_days": 0,
+          "remaining_days": 25,
+          "observed_mean_hub_per_spec": null,
+          "m_hat_hub_per_spec": 42496,
+          "m_hat_per_spec": 44493,
+          "interval_per_spec": [
+            33313,
+            60138
+          ],
+          "bep_per_spec": 20771,
+          "bep_season": "2025/26",
+          "p_below": 0.014,
+          "verdict": "낮음",
+          "in_support_period": true,
+          "announced": null,
+          "warnings": [
+            "2026/27 시즌 손익분기점 공고 전: 2025/26 시즌 기준 사용",
+            "관측 0일: 월 경계에서 가격 추세가 꺾이면 크게 틀릴 수 있음"
+          ],
+          "basis": {
+            "forecast": {
+              "observed_days": 0,
+              "remaining_days": 25,
+              "observed_mean_hub_per_spec": null,
+              "remaining_price_hub_per_spec": 42496,
+              "m_hat_hub_per_spec": 42496,
+              "available": true,
+              "last_trade_date": "2026-10-31"
+            },
+            "conversion": {
+              "ratio_mean": 1.046980252634803,
+              "ratio_sd": 0.00938058944776944,
+              "n_months": 5
+            },
+            "probability": {
+              "p_below": 0.014,
+              "interval_per_spec": [
+                33313,
+                60138
+              ],
+              "verdict": "낮음",
+              "error_bucket_k": 0,
+              "multiplier_c": 1.2,
+              "n_sim": 20000
+            }
+          }
+        },
+        {
+          "item": "월동무",
+          "ym": "2026-11",
+          "as_of": "2026-10-31",
+          "mode": "live",
+          "spec_kg": 20,
+          "status": "판정 불가",
+          "observed_days": 0,
+          "remaining_days": 25,
+          "observed_mean_hub_per_spec": null,
+          "m_hat_hub_per_spec": null,
+          "m_hat_per_spec": null,
+          "interval_per_spec": null,
+          "bep_per_spec": 11820,
+          "bep_season": "2025/26",
+          "p_below": null,
+          "verdict": null,
+          "in_support_period": true,
+          "announced": null,
+          "warnings": [
+            "2026/27 시즌 손익분기점 공고 전: 2025/26 시즌 기준 사용",
+            "최근 21일 안에 가락시장 거래가 없음 (마지막 거래일 2026-05-04)"
+          ],
+          "basis": {
+            "forecast": {
+              "observed_days": 0,
+              "remaining_days": 25,
+              "observed_mean_hub_per_spec": null,
+              "remaining_price_hub_per_spec": null,
+              "m_hat_hub_per_spec": null,
+              "available": false,
+              "last_trade_date": "2026-05-04"
+            }
+          }
+        },
+        {
+          "item": "조생양파",
+          "ym": "2026-11",
+          "as_of": "2026-10-31",
+          "mode": "live",
+          "spec_kg": 15,
+          "status": "판정 불가",
+          "observed_days": 0,
+          "remaining_days": 25,
+          "observed_mean_hub_per_spec": null,
+          "m_hat_hub_per_spec": null,
+          "m_hat_per_spec": null,
+          "interval_per_spec": null,
+          "bep_per_spec": 11310,
+          "bep_season": "2025/26",
+          "p_below": null,
+          "verdict": null,
+          "in_support_period": true,
+          "announced": null,
+          "warnings": [
+            "2026/27 시즌 손익분기점 공고 전: 2025/26 시즌 기준 사용",
+            "최근 21일 안에 가락시장 거래가 없음 (마지막 거래일 2026-06-18)"
+          ],
+          "basis": {
+            "forecast": {
+              "observed_days": 0,
+              "remaining_days": 25,
+              "observed_mean_hub_per_spec": null,
+              "remaining_price_hub_per_spec": null,
+              "m_hat_hub_per_spec": null,
+              "available": false,
+              "last_trade_date": "2026-06-18"
+            }
+          }
+        }
+      ]
+    },
+    "warnings": [],
+    "sources": [
+      "제주데이터허브 서울가락도매 ~2026-10-31",
+      "2026 주요 농산물 물류비 지원사업 추진계획(안)"
+    ]
+  }
+}

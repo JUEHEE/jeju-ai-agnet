@@ -1,0 +1,66 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "요즘 거래량은 어때요?",
+    "context": {
+      "item": "양배추"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "최근 거래량이 줄었어요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "volume",
+          "title": "양배추 거래량 변화",
+          "subtitle": "10월 31일 기준 · 최근 30일 vs 그 전 30일",
+          "facts": [
+            {
+              "label": "최근 하루 평균",
+              "display": "291.4톤"
+            },
+            {
+              "label": "그 전 하루 평균",
+              "display": "308.3톤"
+            },
+            {
+              "label": "변화",
+              "display": "-5.5%"
+            }
+          ],
+          "notes": [
+            "서울 가락시장 거래량이에요 (제주 전체 출하량이 아님)."
+          ],
+          "lead": "최근 거래량이 줄었어요.",
+          "source": {
+            "function": "analyze_volume",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06"
+          }
+        }
+      }
+    ],
+    "suggestions": [
+      "언제 거래가 제일 많아요?",
+      "이번 달 지원받을 수 있나요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "analyze_volume",
+        "args": {
+          "item": "양배추",
+          "period": "30d"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}

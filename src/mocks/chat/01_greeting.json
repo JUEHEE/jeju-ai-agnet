@@ -1,0 +1,26 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": null,
+    "context": {}
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "안녕하세요! 👋 제주 농산물 물류비 도우미예요. 이번 달 지원 가능성, 같이 볼까요?"
+      }
+    ],
+    "suggestions": [
+      "이번 달 지원받을 수 있나요?",
+      "신청하려면 뭐가 필요해요?",
+      "다른 품목은 어때요?"
+    ],
+    "tool_calls": [],
+    "data_end": null,
+    "model_version": null
+  }
+}

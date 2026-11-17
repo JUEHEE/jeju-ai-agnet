@@ -1,0 +1,128 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "이번 달 지원받을 수 있나요?",
+    "context": {
+      "item": "양배추",
+      "as_of": "2026-03-14",
+      "mode": "replay"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "가락시장 가격으로 예측해 봤어요. 지금 흐름이면 이달 평균이 기준보다 낮을 가능성이 커요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "support",
+          "badge": {
+            "code": "high",
+            "label": "지원 가능성 높음",
+            "tone": "positive",
+            "symbol": "✓"
+          },
+          "title": "이번 달 양배추는 지원받을 가능성이 높아요",
+          "subtitle": "3월 14일 기준 · 가락시장 8kg 망",
+          "metrics": [
+            {
+              "label": "예상",
+              "value": 5182,
+              "display": "5,182원"
+            },
+            {
+              "label": "기준",
+              "value": 6116,
+              "display": "6,116원"
+            }
+          ],
+          "summary": "예상 5,182원 · 기준 6,116원",
+          "probability": {
+            "value": 0.913,
+            "display": "91%",
+            "show": false
+          },
+          "range": {
+            "low": 4480,
+            "high": 6061,
+            "display": "4,480원 ~ 6,061원",
+            "meaning": "10번 중 8번은 이 범위"
+          },
+          "notes": [],
+          "lead": "가락시장 가격으로 예측해 봤어요. 지금 흐름이면 이달 평균이 기준보다 낮을 가능성이 커요.",
+          "actions": [
+            {
+              "id": "basis",
+              "label": "근거 보기",
+              "call": {
+                "tool": "predict_support",
+                "args": {
+                  "item": "양배추",
+                  "ym": "2026-03",
+                  "mode": "replay",
+                  "as_of": "2026-03-14"
+                },
+                "view": "basis"
+              }
+            },
+            {
+              "id": "docs",
+              "label": "서류 준비",
+              "call": {
+                "tool": "get_config",
+                "args": {
+                  "topic": "documents"
+                }
+              }
+            },
+            {
+              "id": "notice",
+              "label": "공고",
+              "call": {
+                "tool": "get_config",
+                "args": {
+                  "topic": "summary"
+                }
+              }
+            }
+          ],
+          "source": {
+            "function": "predict_support",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06",
+            "as_of": "2026-03-14",
+            "status": "예측"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "text": "최종 지원 여부는 제주도 공고로 확정돼요. 예측은 판단을 돕는 참고 정보예요.",
+        "style": "footnote"
+      }
+    ],
+    "suggestions": [
+      "왜 그렇게 봤어요?",
+      "신청하려면 뭐가 필요해요?",
+      "다른 품목은 어때요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "predict_support",
+        "args": {
+          "item": "양배추",
+          "ym": "2026-03",
+          "as_of": "2026-03-14",
+          "mode": "replay"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}

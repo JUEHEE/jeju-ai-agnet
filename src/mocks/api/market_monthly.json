@@ -1,0 +1,82 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/market/양배추/monthly?start=2025-11&end=2026-03",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "get_market_data",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "양배추",
+      "level": "monthly",
+      "spec_kg": 8,
+      "rows": [
+        {
+          "ym": "2025-11",
+          "season": "2025/26",
+          "days": 25,
+          "hub_per_spec": 4379,
+          "official_est_per_spec": 4983,
+          "official_per_spec": 5180,
+          "bep_per_spec": 6116,
+          "eligible": 1,
+          "volume_ton": 7509.0
+        },
+        {
+          "ym": "2025-12",
+          "season": "2025/26",
+          "days": 24,
+          "hub_per_spec": 5042,
+          "official_est_per_spec": 5739,
+          "official_per_spec": 5738,
+          "bep_per_spec": 6116,
+          "eligible": 1,
+          "volume_ton": 7545.4
+        },
+        {
+          "ym": "2026-01",
+          "season": "2025/26",
+          "days": 25,
+          "hub_per_spec": 4980,
+          "official_est_per_spec": 5667,
+          "official_per_spec": 5744,
+          "bep_per_spec": 6116,
+          "eligible": 1,
+          "volume_ton": 8306.8
+        },
+        {
+          "ym": "2026-02",
+          "season": "2025/26",
+          "days": 21,
+          "hub_per_spec": 5931,
+          "official_est_per_spec": 6750,
+          "official_per_spec": 6867,
+          "bep_per_spec": 6116,
+          "eligible": 0,
+          "volume_ton": 7197.9
+        },
+        {
+          "ym": "2026-03",
+          "season": "2025/26",
+          "days": 25,
+          "hub_per_spec": 4187,
+          "official_est_per_spec": 4765,
+          "official_per_spec": 4430,
+          "bep_per_spec": 6116,
+          "eligible": 1,
+          "volume_ton": 8888.5
+        }
+      ]
+    },
+    "warnings": [],
+    "sources": [
+      "제주데이터허브 서울가락도매 2020-01-03~2026-10-31",
+      "공식 월평균·지원 여부: 2026 추진계획(안), 2024년 2차 공고"
+    ]
+  }
+}

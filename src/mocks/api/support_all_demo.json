@@ -1,0 +1,213 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/support/all?as_of=2026-03-14&mode=replay",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "predict_support",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "ym": "2026-03",
+      "as_of": "2026-03-14",
+      "items": [
+        {
+          "item": "양배추",
+          "ym": "2026-03",
+          "as_of": "2026-03-14",
+          "mode": "replay",
+          "spec_kg": 8,
+          "status": "예측",
+          "observed_days": 11,
+          "remaining_days": 14,
+          "observed_mean_hub_per_spec": 4984,
+          "m_hat_hub_per_spec": 4475,
+          "m_hat_per_spec": 5182,
+          "interval_per_spec": [
+            4480,
+            6061
+          ],
+          "bep_per_spec": 6116,
+          "bep_season": "2025/26",
+          "p_below": 0.913,
+          "verdict": "높음",
+          "in_support_period": true,
+          "announced": null,
+          "warnings": [],
+          "basis": {
+            "forecast": {
+              "observed_days": 11,
+              "remaining_days": 14,
+              "observed_mean_hub_per_spec": 4984,
+              "remaining_price_hub_per_spec": 4075,
+              "m_hat_hub_per_spec": 4475,
+              "available": true,
+              "last_trade_date": "2026-03-14"
+            },
+            "conversion": {
+              "ratio_mean": 1.1580547417220133,
+              "ratio_sd": 0.018695716982272775,
+              "n_months": 4
+            },
+            "probability": {
+              "p_below": 0.913,
+              "interval_per_spec": [
+                4480,
+                6061
+              ],
+              "verdict": "높음",
+              "error_bucket_k": 10,
+              "multiplier_c": 1.1,
+              "n_sim": 20000
+            }
+          }
+        },
+        {
+          "item": "월동무",
+          "ym": "2026-03",
+          "as_of": "2026-03-14",
+          "mode": "replay",
+          "spec_kg": 20,
+          "status": "예측",
+          "observed_days": 11,
+          "remaining_days": 14,
+          "observed_mean_hub_per_spec": 11767,
+          "m_hat_hub_per_spec": 11047,
+          "m_hat_per_spec": 10973,
+          "interval_per_spec": [
+            9430,
+            13090
+          ],
+          "bep_per_spec": 11820,
+          "bep_season": "2025/26",
+          "p_below": 0.668,
+          "verdict": "불확실",
+          "in_support_period": true,
+          "announced": null,
+          "warnings": [],
+          "basis": {
+            "forecast": {
+              "observed_days": 11,
+              "remaining_days": 14,
+              "observed_mean_hub_per_spec": 11767,
+              "remaining_price_hub_per_spec": 10481,
+              "m_hat_hub_per_spec": 11047,
+              "available": true,
+              "last_trade_date": "2026-03-14"
+            },
+            "conversion": {
+              "ratio_mean": 0.9932979180957133,
+              "ratio_sd": 0.056975234425800145,
+              "n_months": 3
+            },
+            "probability": {
+              "p_below": 0.668,
+              "interval_per_spec": [
+                9430,
+                13090
+              ],
+              "verdict": "불확실",
+              "error_bucket_k": 10,
+              "multiplier_c": 1.1,
+              "n_sim": 20000
+            }
+          }
+        },
+        {
+          "item": "당근",
+          "ym": "2026-03",
+          "as_of": "2026-03-14",
+          "mode": "replay",
+          "spec_kg": 20,
+          "status": "예측",
+          "observed_days": 11,
+          "remaining_days": 14,
+          "observed_mean_hub_per_spec": 20107,
+          "m_hat_hub_per_spec": 19220,
+          "m_hat_per_spec": 20057,
+          "interval_per_spec": [
+            17348,
+            23487
+          ],
+          "bep_per_spec": 20771,
+          "bep_season": "2025/26",
+          "p_below": 0.531,
+          "verdict": "불확실",
+          "in_support_period": true,
+          "announced": null,
+          "warnings": [],
+          "basis": {
+            "forecast": {
+              "observed_days": 11,
+              "remaining_days": 14,
+              "observed_mean_hub_per_spec": 20107,
+              "remaining_price_hub_per_spec": 18524,
+              "m_hat_hub_per_spec": 19220,
+              "available": true,
+              "last_trade_date": "2026-03-14"
+            },
+            "conversion": {
+              "ratio_mean": 1.0435208448763102,
+              "ratio_sd": 0.006127310251651979,
+              "n_months": 4
+            },
+            "probability": {
+              "p_below": 0.531,
+              "interval_per_spec": [
+                17348,
+                23487
+              ],
+              "verdict": "불확실",
+              "error_bucket_k": 10,
+              "multiplier_c": 1.1,
+              "n_sim": 20000
+            }
+          }
+        },
+        {
+          "item": "조생양파",
+          "ym": "2026-03",
+          "as_of": "2026-03-14",
+          "mode": "replay",
+          "spec_kg": 15,
+          "status": "판정 불가",
+          "observed_days": 0,
+          "remaining_days": 14,
+          "observed_mean_hub_per_spec": null,
+          "m_hat_hub_per_spec": null,
+          "m_hat_per_spec": null,
+          "interval_per_spec": null,
+          "bep_per_spec": 11310,
+          "bep_season": "2025/26",
+          "p_below": null,
+          "verdict": null,
+          "in_support_period": true,
+          "announced": null,
+          "warnings": [
+            "최근 21일 안에 가락시장 거래가 없음 (마지막 거래일 2025-06-16)"
+          ],
+          "basis": {
+            "forecast": {
+              "observed_days": 0,
+              "remaining_days": 14,
+              "observed_mean_hub_per_spec": null,
+              "remaining_price_hub_per_spec": null,
+              "m_hat_hub_per_spec": null,
+              "available": false,
+              "last_trade_date": "2025-06-16"
+            }
+          }
+        }
+      ]
+    },
+    "warnings": [],
+    "sources": [
+      "제주데이터허브 서울가락도매 ~2026-10-31",
+      "2026 주요 농산물 물류비 지원사업 추진계획(안)"
+    ]
+  }
+}

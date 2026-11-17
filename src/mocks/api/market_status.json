@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/market/양배추/status",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "get_market_data",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "양배추",
+      "level": "status",
+      "ym": "2026-10",
+      "observed_days": 21,
+      "observed_mean_hub_per_spec": 7869,
+      "last_trade_date": "2026-10-31",
+      "last_price_per_spec": 6732,
+      "last_volume_ton": 246.14,
+      "spec_kg": 8
+    },
+    "warnings": [],
+    "sources": [
+      "제주데이터허브 서울가락도매 2020-01-03~2026-10-31"
+    ]
+  }
+}

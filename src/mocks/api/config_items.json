@@ -1,0 +1,74 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/config/items",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "get_config",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "season": "2025/26",
+      "is_latest_announced": true,
+      "data": {
+        "items": {
+          "양배추": {
+            "cultivar": "양배추(일반)",
+            "spec_kg": 8,
+            "spec": "8kg 망",
+            "bep_per_spec": 6116,
+            "unit_price_won_per_kg": 23,
+            "support_months": [
+              "2025-11",
+              "2025-12",
+              "2026-01",
+              "2026-03"
+            ]
+          },
+          "월동무": {
+            "cultivar": "월동무",
+            "spec_kg": 20,
+            "spec": "20kg 상자",
+            "bep_per_spec": 11820,
+            "unit_price_won_per_kg": 16,
+            "support_months": [
+              "2025-11",
+              "2026-03"
+            ]
+          },
+          "당근": {
+            "cultivar": "당근(일반)",
+            "spec_kg": 20,
+            "spec": "20kg 상자",
+            "bep_per_spec": 20771,
+            "unit_price_won_per_kg": 16,
+            "support_months": [
+              "2025-11",
+              "2026-01"
+            ]
+          },
+          "조생양파": {
+            "cultivar": "조생양파",
+            "spec_kg": 15,
+            "spec": "15kg 망",
+            "bep_per_spec": 11310,
+            "unit_price_won_per_kg": 14,
+            "support_months": [
+              "2026-03"
+            ]
+          }
+        }
+      },
+      "conflicts": []
+    },
+    "warnings": [],
+    "sources": [
+      "2026년 주요 농산물 물류비 지원사업 추진계획(안)",
+      "추진계획(안) 붙임2 사업대상자 모집 공고문(안), 2026.4.14. 자"
+    ]
+  }
+}

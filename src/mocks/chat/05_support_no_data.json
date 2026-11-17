@@ -1,0 +1,91 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "월동무는 어때요?",
+    "context": {
+      "item": "월동무"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "지금은 판단할 근거가 부족해요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "support",
+          "badge": {
+            "code": "no_data",
+            "label": "출하 전",
+            "tone": "neutral",
+            "symbol": "–"
+          },
+          "title": "다음 달 월동무는 지금은 판단할 수 없어요",
+          "subtitle": "10월 31일 기준 · 가락시장 20kg 상자",
+          "metrics": [],
+          "summary": null,
+          "probability": null,
+          "range": null,
+          "notes": [
+            "최근 가락시장에서 거래된 기록이 없어 예측할 수 없어요. 보통 출하가 시작되면 판단할 수 있어요."
+          ],
+          "lead": "지금은 판단할 근거가 부족해요.",
+          "actions": [
+            {
+              "id": "season",
+              "label": "언제 거래가 많아요?",
+              "call": {
+                "tool": "analyze_season",
+                "args": {
+                  "item": "월동무"
+                }
+              }
+            },
+            {
+              "id": "compare",
+              "label": "다른 품목 보기",
+              "call": {
+                "tool": "predict_support",
+                "args": {
+                  "item": "전체"
+                }
+              }
+            }
+          ],
+          "source": {
+            "function": "predict_support",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06",
+            "as_of": "2026-10-31",
+            "status": "판정 불가"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "text": "최종 지원 여부는 제주도 공고로 확정돼요. 예측은 판단을 돕는 참고 정보예요.",
+        "style": "footnote"
+      }
+    ],
+    "suggestions": [
+      "왜 그렇게 봤어요?",
+      "신청하려면 뭐가 필요해요?",
+      "다른 품목은 어때요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "predict_support",
+        "args": {
+          "item": "월동무"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "올해 2월 양배추는 지원됐어요?",
+    "context": {
+      "item": "양배추"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "이미 공고가 난 달이라 실제 결과로 알려드릴게요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "announced",
+          "badge": {
+            "code": "not_supported",
+            "label": "지원되지 않았어요",
+            "tone": "negative",
+            "symbol": "✕"
+          },
+          "title": "2월 양배추는 지원 대상이 아니었어요",
+          "subtitle": "공고 결과 · 가락시장 8kg 망",
+          "metrics": [
+            {
+              "label": "공식 월평균",
+              "value": 6867,
+              "display": "6,867원"
+            },
+            {
+              "label": "기준",
+              "value": 6116,
+              "display": "6,116원"
+            }
+          ],
+          "summary": "공식 월평균 6,867원 · 기준 6,116원",
+          "notes": [],
+          "actions": [
+            {
+              "id": "notice",
+              "label": "공고",
+              "call": {
+                "tool": "get_config",
+                "args": {
+                  "topic": "summary"
+                }
+              }
+            },
+            {
+              "id": "history",
+              "label": "지난 결과 더 보기",
+              "call": {
+                "tool": "get_market_data",
+                "args": {
+                  "item": "양배추",
+                  "level": "monthly"
+                }
+              }
+            }
+          ],
+          "lead": "이미 공고가 난 달이라 실제 결과로 알려드릴게요.",
+          "source": {
+            "function": "predict_support",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06",
+            "as_of": "2026-10-31"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "text": "최종 지원 여부는 제주도 공고로 확정돼요. 예측은 판단을 돕는 참고 정보예요.",
+        "style": "footnote"
+      }
+    ],
+    "suggestions": [
+      "이번 달은 어때요?",
+      "신청 기간이 언제예요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "predict_support",
+        "args": {
+          "item": "양배추",
+          "ym": "2026-02"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}

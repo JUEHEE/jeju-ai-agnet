@@ -1,0 +1,81 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/season?item=월동무",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "analyze_season",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "월동무",
+      "status": "분석 완료",
+      "months": [
+        {
+          "month": 1,
+          "mean_volume_ton": 10570.47,
+          "total_volume_ton": 42281.88,
+          "observed_years": 4
+        },
+        {
+          "month": 2,
+          "mean_volume_ton": 11297.74,
+          "total_volume_ton": 45190.96,
+          "observed_years": 4
+        },
+        {
+          "month": 3,
+          "mean_volume_ton": 13583.39,
+          "total_volume_ton": 54333.56,
+          "observed_years": 4
+        },
+        {
+          "month": 4,
+          "mean_volume_ton": 11771.82,
+          "total_volume_ton": 47087.26,
+          "observed_years": 4
+        },
+        {
+          "month": 5,
+          "mean_volume_ton": 54.25,
+          "total_volume_ton": 108.5,
+          "observed_years": 2
+        },
+        {
+          "month": 6,
+          "mean_volume_ton": 4.18,
+          "total_volume_ton": 4.18,
+          "observed_years": 1
+        },
+        {
+          "month": 11,
+          "mean_volume_ton": 270.28,
+          "total_volume_ton": 270.28,
+          "observed_years": 1
+        },
+        {
+          "month": 12,
+          "mean_volume_ton": 7328.96,
+          "total_volume_ton": 21986.88,
+          "observed_years": 3
+        }
+      ],
+      "top_months": [
+        3,
+        4,
+        2
+      ],
+      "note": "거래가 관측된 월만 평균 계산. 미관측 월은 0톤으로 간주하지 않으며 공식 지원 대상 월과 다름"
+    },
+    "warnings": [
+      "월별 관측 연도 수가 다를 수 있으므로 observed_years 함께 확인"
+    ],
+    "sources": [
+      "제주데이터허브 서울가락도매 일별 거래량 (저장 데이터 종료 2026-10-31)"
+    ]
+  }
+}

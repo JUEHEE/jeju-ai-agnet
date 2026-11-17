@@ -1,0 +1,42 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "브로콜리도 지원돼요?",
+    "context": {}
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "card",
+        "card": {
+          "type": "notice",
+          "title": "예측하지 않는 품목이에요",
+          "text": "브로콜리는 물류비 지원 품목이지만, 가락시장 거래 데이터가 없어 이 서비스에서는 예측하지 않아요. 지금은 양배추·월동무·당근·조생양파를 볼 수 있어요.",
+          "actions": [
+            {
+              "id": "items",
+              "label": "지원 품목 보기",
+              "call": {
+                "tool": "get_config",
+                "args": {
+                  "topic": "items"
+                }
+              }
+            }
+          ],
+          "lead": null
+        }
+      }
+    ],
+    "suggestions": [
+      "이번 달 지원받을 수 있나요?",
+      "지원 품목이 뭐예요?"
+    ],
+    "tool_calls": [],
+    "data_end": null,
+    "model_version": null
+  }
+}

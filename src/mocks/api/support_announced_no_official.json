@@ -1,0 +1,47 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/support?item=양배추&ym=2024-02",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "predict_support",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "양배추",
+      "ym": "2024-02",
+      "as_of": "2026-10-31",
+      "mode": "live",
+      "spec_kg": 8,
+      "status": "공고 확정",
+      "observed_days": null,
+      "remaining_days": null,
+      "observed_mean_hub_per_spec": null,
+      "m_hat_hub_per_spec": null,
+      "m_hat_per_spec": null,
+      "interval_per_spec": null,
+      "bep_per_spec": 5470,
+      "bep_season": "2023/24",
+      "p_below": null,
+      "verdict": null,
+      "in_support_period": true,
+      "announced": {
+        "official_per_spec": null,
+        "eligible": 1,
+        "bep_per_spec": 5470
+      },
+      "basis": {}
+    },
+    "warnings": [
+      "이미 공고된 달이라 예측이 아니라 실제 결과입니다"
+    ],
+    "sources": [
+      "제주데이터허브 서울가락도매 ~2026-10-31",
+      "2026 주요 농산물 물류비 지원사업 추진계획(안)"
+    ]
+  }
+}

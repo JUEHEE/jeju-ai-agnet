@@ -1,0 +1,37 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/volume?item=양배추&period=30d",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "analyze_volume",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "양배추",
+      "period": "30d",
+      "reference_date": "2026-10-31",
+      "status": "분석 완료",
+      "recent": {
+        "trading_days": 20,
+        "total_volume_ton": 5828.76,
+        "avg_per_trading_day_ton": 291.438
+      },
+      "previous": {
+        "trading_days": 17,
+        "total_volume_ton": 5241.02,
+        "avg_per_trading_day_ton": 308.295
+      },
+      "avg_volume_change_pct": -5.47,
+      "note": "거래가 기록된 날 기준 평균 비교; 거래 없는 날은 0톤으로 가정하지 않음"
+    },
+    "warnings": [],
+    "sources": [
+      "제주데이터허브 서울가락도매 일별 거래량 (저장 데이터 종료 2026-10-31)"
+    ]
+  }
+}

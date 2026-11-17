@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/tools/forecast_hub_month",
+    "body": {}
+  },
+  "status": 404,
+  "response": {
+    "function": "forecast_hub_month",
+    "ok": false,
+    "error": "Agent 도구가 아님: forecast_hub_month (가능: get_config, get_market_data, predict_support, check_eligibility, check_docs, analyze_volume, analyze_season)",
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": null,
+    "warnings": [],
+    "sources": []
+  }
+}

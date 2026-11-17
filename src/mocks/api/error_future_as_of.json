@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/support?item=양배추&as_of=2027-01-01",
+    "body": null
+  },
+  "status": 400,
+  "response": {
+    "function": "predict_support",
+    "ok": false,
+    "error": "기준일 2027-01-01이 데이터 마지막 날 2026-10-31보다 뒤",
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": null,
+    "warnings": [],
+    "sources": []
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/market/양배추/daily?start=2026-10-20",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "get_market_data",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "양배추",
+      "level": "daily",
+      "spec_kg": 8,
+      "rows": [
+        {
+          "date": "2026-10-20",
+          "price_won_per_kg": 1075.9,
+          "price_per_spec": 8607,
+          "volume_ton": 295.21
+        },
+        {
+          "date": "2026-10-21",
+          "price_won_per_kg": 891.3,
+          "price_per_spec": 7131,
+          "volume_ton": 353.08
+        },
+        {
+          "date": "2026-10-22",
+          "price_won_per_kg": 931.0,
+          "price_per_spec": 7448,
+          "volume_ton": 287.02
+        },
+        {
+          "date": "2026-10-23",
+          "price_won_per_kg": 844.3,
+          "price_per_spec": 6754,
+          "volume_ton": 333.59
+        },
+        {
+          "date": "2026-10-24",
+          "price_won_per_kg": 939.3,
+          "price_per_spec": 7514,
+          "volume_ton": 247.61
+        },
+        {
+          "date": "2026-10-26",
+          "price_won_per_kg": 831.1,
+          "price_per_spec": 6648,
+          "volume_ton": 311.45
+        },
+        {
+          "date": "2026-10-27",
+          "price_won_per_kg": 776.8,
+          "price_per_spec": 6214,
+          "volume_ton": 304.75
+        },
+        {
+          "date": "2026-10-28",
+          "price_won_per_kg": 842.7,
+          "price_per_spec": 6741,
+          "volume_ton": 256.5
+        },
+        {
+          "date": "2026-10-29",
+          "price_won_per_kg": 870.3,
+          "price_per_spec": 6962,
+          "volume_ton": 218.46
+        },
+        {
+          "date": "2026-10-30",
+          "price_won_per_kg": 822.5,
+          "price_per_spec": 6580,
+          "volume_ton": 263.88
+        },
+        {
+          "date": "2026-10-31",
+          "price_won_per_kg": 841.5,
+          "price_per_spec": 6732,
+          "volume_ton": 246.14
+        }
+      ]
+    },
+    "warnings": [],
+    "sources": [
+      "제주데이터허브 서울가락도매 2020-01-03~2026-10-31"
+    ]
+  }
+}

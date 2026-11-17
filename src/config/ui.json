@@ -1,0 +1,22 @@
+{
+  "_about": "화면·채팅 표시 설정. 백엔드(api/chat_cards.py)와 프로토타입이 이 파일을 함께 읽는다. 값만 바꾸면 라벨·색·표시 방식이 전체에 반영된다.",
+  "service_name": null,
+  "service_name_fallback": "제주 농산물 물류비 도우미",
+  "show_probability": false,
+  "chart_cards_in_chat": true,
+  "badges": {
+    "high":          {"verdict": "높음",      "label": "지원 가능성 높음",   "tone": "positive", "symbol": "✓"},
+    "uncertain":     {"verdict": "불확실",    "label": "아직 몰라요",        "tone": "caution",  "symbol": "!"},
+    "low":           {"verdict": "낮음",      "label": "지원 가능성 낮음",   "tone": "negative", "symbol": "✕"},
+    "no_data":       {"verdict": "판정 불가", "label": "출하 전",            "tone": "neutral",  "symbol": "–"},
+    "supported":     {"verdict": "지원됨",    "label": "지원됐어요",         "tone": "positive", "symbol": "✓"},
+    "not_supported": {"verdict": "미지원",    "label": "지원되지 않았어요",  "tone": "negative", "symbol": "✕"}
+  },
+  "tones": {
+    "positive": {"text": "#1F7A4D", "bg": "#E7F5EC"},
+    "caution":  {"text": "#8A5A00", "bg": "#FFF3DA"},
+    "negative": {"text": "#B0352C", "bg": "#FBE7E5"},
+    "neutral":  {"text": "#4A4F4D", "bg": "#EFF1F0"},
+    "info":     {"text": "#2457C5", "bg": "#E8EFFC"}
+  }
+}

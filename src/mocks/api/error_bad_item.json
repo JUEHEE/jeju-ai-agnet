@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/support?item=브로콜리",
+    "body": null
+  },
+  "status": 400,
+  "response": {
+    "function": "/api/support",
+    "ok": false,
+    "error": "입력 형식 오류 - item: 허용되지 않는 값 (가능: '양배추', '월동무', '당근' or '조생양파')",
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": null,
+    "warnings": [],
+    "sources": []
+  }
+}

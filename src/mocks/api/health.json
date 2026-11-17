@@ -1,0 +1,42 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/health",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "status": "ok",
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "data_refresh": "없음 (저장 데이터 고정)",
+    "items": [
+      "양배추",
+      "월동무",
+      "당근",
+      "조생양파"
+    ],
+    "functions": [
+      "get_config",
+      "get_market_data",
+      "get_trading_calendar",
+      "forecast_hub_month",
+      "convert_to_official",
+      "estimate_probability",
+      "predict_support",
+      "check_eligibility",
+      "check_docs",
+      "analyze_volume",
+      "analyze_season"
+    ],
+    "agent_tools": [
+      "get_config",
+      "get_market_data",
+      "predict_support",
+      "check_eligibility",
+      "check_docs",
+      "analyze_volume",
+      "analyze_season"
+    ]
+  }
+}

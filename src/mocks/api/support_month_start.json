@@ -1,0 +1,72 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/support?item=당근&as_of=2025-12-31&mode=replay",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "predict_support",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "당근",
+      "ym": "2026-01",
+      "as_of": "2025-12-31",
+      "mode": "replay",
+      "spec_kg": 20,
+      "status": "예측",
+      "observed_days": 0,
+      "remaining_days": 25,
+      "observed_mean_hub_per_spec": null,
+      "m_hat_hub_per_spec": 25964,
+      "m_hat_per_spec": 27254,
+      "interval_per_spec": [
+        20340,
+        36622
+      ],
+      "bep_per_spec": 20771,
+      "bep_season": "2025/26",
+      "p_below": 0.13,
+      "verdict": "낮음",
+      "in_support_period": true,
+      "announced": null,
+      "basis": {
+        "forecast": {
+          "observed_days": 0,
+          "remaining_days": 25,
+          "observed_mean_hub_per_spec": null,
+          "remaining_price_hub_per_spec": 25964,
+          "m_hat_hub_per_spec": 25964,
+          "available": true,
+          "last_trade_date": "2025-12-31"
+        },
+        "conversion": {
+          "ratio_mean": 1.0496777136259068,
+          "ratio_sd": 0.008295700042389342,
+          "n_months": 4
+        },
+        "probability": {
+          "p_below": 0.13,
+          "interval_per_spec": [
+            20340,
+            36622
+          ],
+          "verdict": "낮음",
+          "error_bucket_k": 0,
+          "multiplier_c": 1.2,
+          "n_sim": 20000
+        }
+      }
+    },
+    "warnings": [
+      "관측 0일: 월 경계에서 가격 추세가 꺾이면 크게 틀릴 수 있음"
+    ],
+    "sources": [
+      "제주데이터허브 서울가락도매 ~2026-10-31",
+      "2026 주요 농산물 물류비 지원사업 추진계획(안)"
+    ]
+  }
+}

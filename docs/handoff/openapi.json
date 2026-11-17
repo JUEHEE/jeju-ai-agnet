@@ -1,0 +1,991 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "제주 농산물 물류비 지원 예측 API",
+    "description": "jeju_engine 11개 함수 중 화면·Agent에 필요한 기능을 HTTP로 제공한다. 모든 응답은 {function, ok, error, data_end, model_version, result, warnings, sources} 형식이다.",
+    "version": "ewm3-2025-06"
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": [
+          "기본"
+        ],
+        "summary": "서버 상태와 데이터 기준일",
+        "operationId": "health_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/functions": {
+      "get": {
+        "tags": [
+          "기본"
+        ],
+        "summary": "함수 11개 명세 (functions.json)",
+        "operationId": "functions_spec_api_functions_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/support": {
+      "get": {
+        "tags": [
+          "지원 가능성"
+        ],
+        "summary": "품목 하나의 지원 가능성",
+        "operationId": "support_api_support_get",
+        "parameters": [
+          {
+            "name": "item",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "양배추",
+                "월동무",
+                "당근",
+                "조생양파"
+              ],
+              "type": "string",
+              "description": "품목",
+              "title": "Item"
+            },
+            "description": "품목"
+          },
+          {
+            "name": "ym",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "대상 월 YYYY-MM. 생략하면 기준일의 진행 중인 달(월말이면 다음 달)",
+              "title": "Ym"
+            },
+            "description": "대상 월 YYYY-MM. 생략하면 기준일의 진행 중인 달(월말이면 다음 달)"
+          },
+          {
+            "name": "as_of",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "기준일 YYYY-MM-DD. 생략하면 데이터 마지막 날. 시연할 때 과거 날짜 지정",
+              "title": "As Of"
+            },
+            "description": "기준일 YYYY-MM-DD. 생략하면 데이터 마지막 날. 시연할 때 과거 날짜 지정"
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "live",
+                "replay"
+              ],
+              "type": "string",
+              "description": "live=서비스(공고 끝난 달은 실제 결과) / replay=그 시점 정보만 사용(시연·검증)",
+              "default": "live",
+              "title": "Mode"
+            },
+            "description": "live=서비스(공고 끝난 달은 실제 결과) / replay=그 시점 정보만 사용(시연·검증)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/support/all": {
+      "get": {
+        "tags": [
+          "지원 가능성"
+        ],
+        "summary": "4개 품목 비교 (확률 높은 순)",
+        "operationId": "support_all_api_support_all_get",
+        "parameters": [
+          {
+            "name": "ym",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Ym"
+            }
+          },
+          {
+            "name": "as_of",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "As Of"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "live",
+                "replay"
+              ],
+              "type": "string",
+              "default": "live",
+              "title": "Mode"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/support/replay": {
+      "get": {
+        "tags": [
+          "지원 가능성"
+        ],
+        "summary": "한 달 동안 판정 변화 (날짜 슬라이더 데모)",
+        "operationId": "support_replay_api_support_replay_get",
+        "parameters": [
+          {
+            "name": "item",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "양배추",
+                "월동무",
+                "당근",
+                "조생양파"
+              ],
+              "type": "string",
+              "title": "Item"
+            }
+          },
+          {
+            "name": "ym",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "대상 월 YYYY-MM",
+              "title": "Ym"
+            },
+            "description": "대상 월 YYYY-MM"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/market/{item}/{level}": {
+      "get": {
+        "tags": [
+          "시장 데이터"
+        ],
+        "summary": "이번 달 현황·일별·월별 이력",
+        "operationId": "market_api_market__item___level__get",
+        "parameters": [
+          {
+            "name": "item",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "양배추",
+                "월동무",
+                "당근",
+                "조생양파"
+              ],
+              "type": "string",
+              "title": "Item"
+            }
+          },
+          {
+            "name": "level",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "status",
+                "daily",
+                "monthly"
+              ],
+              "type": "string",
+              "description": "status=이번 달 현황, daily=일별, monthly=월별",
+              "title": "Level"
+            },
+            "description": "status=이번 달 현황, daily=일별, monthly=월별"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "YYYY-MM-DD 또는 YYYY-MM",
+              "title": "Start"
+            },
+            "description": "YYYY-MM-DD 또는 YYYY-MM"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "End"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/config/{topic}": {
+      "get": {
+        "tags": [
+          "사업 정보"
+        ],
+        "summary": "공식 사업 정보·판정 기준",
+        "operationId": "program_config_api_config__topic__get",
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "enum": [
+                "summary",
+                "items",
+                "requirements",
+                "documents",
+                "schedule",
+                "model",
+                "all"
+              ],
+              "type": "string",
+              "title": "Topic"
+            }
+          },
+          {
+            "name": "item",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "양배추",
+                    "월동무",
+                    "당근",
+                    "조생양파"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Item"
+            }
+          },
+          {
+            "name": "season",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Season"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/eligibility": {
+      "post": {
+        "tags": [
+          "신청 준비"
+        ],
+        "summary": "신청 요건 사전 점검",
+        "operationId": "eligibility_api_eligibility_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EligibilityIn",
+                "examples": [
+                  {
+                    "item": "양배추",
+                    "ym": "2025-11",
+                    "user_info": {
+                      "applicant_type": "지역농협",
+                      "hq_in_jeju": true
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/docs-check": {
+      "post": {
+        "tags": [
+          "신청 준비"
+        ],
+        "summary": "준비·누락 서류 확인",
+        "operationId": "docs_check_api_docs_check_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocsIn",
+                "examples": [
+                  {
+                    "item": "양배추",
+                    "ym": "2025-11",
+                    "docs": [
+                      "D01",
+                      "D07"
+                    ],
+                    "applicant_type": "영농조합법인"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/volume": {
+      "get": {
+        "tags": [
+          "거래량 분석"
+        ],
+        "summary": "최근 N일 vs 직전 N일 거래량",
+        "operationId": "volume_api_volume_get",
+        "parameters": [
+          {
+            "name": "item",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "양배추",
+                "월동무",
+                "당근",
+                "조생양파"
+              ],
+              "type": "string",
+              "title": "Item"
+            }
+          },
+          {
+            "name": "period",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "'7d', '30d', '90d' 등 1~365일",
+              "default": "30d",
+              "title": "Period"
+            },
+            "description": "'7d', '30d', '90d' 등 1~365일"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/season": {
+      "get": {
+        "tags": [
+          "거래량 분석"
+        ],
+        "summary": "월별 거래 집중 시기",
+        "operationId": "season_api_season_get",
+        "parameters": [
+          {
+            "name": "item",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "양배추",
+                "월동무",
+                "당근",
+                "조생양파"
+              ],
+              "type": "string",
+              "title": "Item"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tools/{name}": {
+      "post": {
+        "tags": [
+          "Agent"
+        ],
+        "summary": "Agent 도구 7개를 이름으로 호출",
+        "operationId": "tool_call_api_tools__name__post",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Name"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "title": "Args"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DocsIn": {
+        "properties": {
+          "item": {
+            "type": "string",
+            "enum": [
+              "양배추",
+              "월동무",
+              "당근",
+              "조생양파"
+            ],
+            "title": "Item"
+          },
+          "ym": {
+            "type": "string",
+            "title": "Ym"
+          },
+          "docs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Docs",
+            "description": "서류 ID(D01~D14) 또는 정확한 공식 명칭"
+          },
+          "applicant_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "지역농협",
+                  "영농조합법인"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applicant Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "item",
+          "ym",
+          "docs"
+        ],
+        "title": "DocsIn"
+      },
+      "EligibilityIn": {
+        "properties": {
+          "item": {
+            "type": "string",
+            "enum": [
+              "양배추",
+              "월동무",
+              "당근",
+              "조생양파"
+            ],
+            "title": "Item"
+          },
+          "ym": {
+            "type": "string",
+            "title": "Ym",
+            "description": "출하 월 YYYY-MM"
+          },
+          "user_info": {
+            "$ref": "#/components/schemas/UserInfo",
+            "description": "모르는 항목은 넣지 않음"
+          }
+        },
+        "type": "object",
+        "required": [
+          "item",
+          "ym"
+        ],
+        "title": "EligibilityIn"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "UserInfo": {
+        "properties": {
+          "applicant_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "지역농협",
+                  "영농조합법인",
+                  "개별 농가"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applicant Type"
+          },
+          "ship_destination": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "도외 도매시장",
+                  "산지공판장"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ship Destination"
+          },
+          "years_since_established": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Years Since Established"
+          },
+          "hq_in_jeju": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hq In Jeju"
+          },
+          "total_capital_won": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Capital Won"
+          },
+          "has_financial_statements": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Has Financial Statements"
+          },
+          "no_local_tax_arrears": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "No Local Tax Arrears"
+          },
+          "farm_business_registered": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Farm Business Registered"
+          },
+          "farmer_members": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Farmer Members"
+          },
+          "records_match": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Records Match"
+          },
+          "self_fund_member": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Self Fund Member"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "UserInfo",
+        "description": "신청 주체 정보. 모르는 항목은 빼고 보낸다. 폼에서 온 'true'·'500000000' 같은 문자열도 형식에 맞게 바꾼다.\n정의되지 않은 항목 이름(오타)은 400으로 알려준다."
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

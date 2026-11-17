@@ -1,0 +1,84 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "월동무는 언제 거래가 제일 많아요?",
+    "context": {
+      "item": "월동무"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "2월, 3월, 4월에 거래가 가장 많아요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "season",
+          "title": "월동무 거래가 많은 시기",
+          "subtitle": "과거 가락시장 월별 거래량",
+          "chart": {
+            "kind": "bar",
+            "x": [
+              "1월",
+              "2월",
+              "3월",
+              "4월",
+              "5월",
+              "6월",
+              "11월",
+              "12월"
+            ],
+            "series": [
+              {
+                "name": "월평균 거래량(톤)",
+                "values": [
+                  10570.47,
+                  11297.74,
+                  13583.39,
+                  11771.82,
+                  54.25,
+                  4.18,
+                  270.28,
+                  7328.96
+                ]
+              }
+            ],
+            "highlight": [
+              "2월",
+              "3월",
+              "4월"
+            ]
+          },
+          "notes": [
+            "거래가 많은 달과 물류비 지원 대상 달은 달라요."
+          ],
+          "lead": "2월, 3월, 4월에 거래가 가장 많아요.",
+          "source": {
+            "function": "analyze_season",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06"
+          }
+        }
+      }
+    ],
+    "suggestions": [
+      "이번 달 지원받을 수 있나요?",
+      "요즘 거래량은 어때요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "analyze_season",
+        "args": {
+          "item": "월동무"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/support?item=월동무",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "predict_support",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "item": "월동무",
+      "ym": "2026-11",
+      "as_of": "2026-10-31",
+      "mode": "live",
+      "spec_kg": 20,
+      "status": "판정 불가",
+      "observed_days": 0,
+      "remaining_days": 25,
+      "observed_mean_hub_per_spec": null,
+      "m_hat_hub_per_spec": null,
+      "m_hat_per_spec": null,
+      "interval_per_spec": null,
+      "bep_per_spec": 11820,
+      "bep_season": "2025/26",
+      "p_below": null,
+      "verdict": null,
+      "in_support_period": true,
+      "announced": null,
+      "basis": {
+        "forecast": {
+          "observed_days": 0,
+          "remaining_days": 25,
+          "observed_mean_hub_per_spec": null,
+          "remaining_price_hub_per_spec": null,
+          "m_hat_hub_per_spec": null,
+          "available": false,
+          "last_trade_date": "2026-05-04"
+        }
+      }
+    },
+    "warnings": [
+      "2026/27 시즌 손익분기점 공고 전: 2025/26 시즌 기준 사용",
+      "최근 21일 안에 가락시장 거래가 없음 (마지막 거래일 2026-05-04)"
+    ],
+    "sources": [
+      "제주데이터허브 서울가락도매 ~2026-10-31",
+      "2026 주요 농산물 물류비 지원사업 추진계획(안)"
+    ]
+  }
+}

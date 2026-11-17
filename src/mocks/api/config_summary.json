@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/config/summary",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "get_config",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "season": "2025/26",
+      "is_latest_announced": true,
+      "data": {
+        "summary": {
+          "support": "도외 도매시장(산지공판장 포함)으로 출하하는 해상운송비의 50% 지원",
+          "price_condition": "출하 월의 가락시장 기준가격 월평균이 손익분기점(생산비+유통비) 이하",
+          "applicant": "도내 지역농협 및 영농조합법인 (개별 농가는 직접 신청하지 않고, 소속 농협·법인을 통해 지원금이 출하 생산자에게 지급됨)",
+          "source": "plan p1, p3; notice_draft 1·2항"
+        }
+      },
+      "conflicts": []
+    },
+    "warnings": [],
+    "sources": [
+      "2026년 주요 농산물 물류비 지원사업 추진계획(안)",
+      "추진계획(안) 붙임2 사업대상자 모집 공고문(안), 2026.4.14. 자"
+    ]
+  }
+}

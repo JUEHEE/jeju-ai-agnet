@@ -1,0 +1,124 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "사업자등록증이랑 등기부등본은 있어요. 뭐가 더 필요해요?",
+    "context": {
+      "item": "양배추"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "공식 서류 12종 중 2종 준비됐어요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "docs",
+          "title": "서류 준비 확인",
+          "subtitle": "2025/26 시즌 공고 기준",
+          "progress": {
+            "done": 2,
+            "total": 12
+          },
+          "prepared": [
+            {
+              "id": "D07",
+              "name": "사업자등록증"
+            },
+            {
+              "id": "D08",
+              "name": "법인등기부등본"
+            }
+          ],
+          "missing": [
+            {
+              "id": "D01",
+              "name": "보조사업 신청 공문",
+              "note": null
+            },
+            {
+              "id": "D02",
+              "name": "지원신청서(서식1) 및 교부신청서(서식2)",
+              "note": null
+            },
+            {
+              "id": "D03",
+              "name": "사업계획서(서식3) 및 단체소개서(서식4)",
+              "note": null
+            },
+            {
+              "id": "D04",
+              "name": "해당품목 조합원(출하농가) 현황 및 농가별 출하내역(서식5)",
+              "note": "참여농가 20농가 이상이면 엑셀 파일로 제출"
+            },
+            {
+              "id": "D05",
+              "name": "지방보조사업자 관리카드(서식6)",
+              "note": null
+            },
+            {
+              "id": "D06",
+              "name": "청렴이행서약서(서식7)",
+              "note": null
+            },
+            {
+              "id": "D09",
+              "name": "지방세납세증명서",
+              "note": "체납 여부 확인용"
+            },
+            {
+              "id": "D10",
+              "name": "국세청 발행 최근 2년간 재무제표(손익계산서 포함)",
+              "note": null
+            },
+            {
+              "id": "D11",
+              "name": "월별 대상품목 출하 물량 증빙자료",
+              "note": null
+            },
+            {
+              "id": "D12",
+              "name": "자조금 가입 증명서",
+              "note": "농협은 명단 제출, 농업법인은 증명서 제출"
+            }
+          ],
+          "later": "보조금 전용통장 개설 및 자부담금 통장 예치 내역은 교부결정 전까지 별도 제출",
+          "notes": [
+            "서류가 있는지만 확인했어요. 내용이 맞는지는 접수처에서 확인해요."
+          ],
+          "lead": "공식 서류 12종 중 2종 준비됐어요.",
+          "source": {
+            "function": "check_docs",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06"
+          }
+        }
+      }
+    ],
+    "suggestions": [
+      "신청 자격도 확인해 줘요",
+      "신청 기간이 언제예요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "check_docs",
+        "args": {
+          "item": "양배추",
+          "ym": "2026-03",
+          "docs": [
+            "D07",
+            "D08"
+          ],
+          "applicant_type": "지역농협"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}

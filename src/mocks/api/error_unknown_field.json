@@ -1,0 +1,24 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "/api/eligibility",
+    "body": {
+      "item": "양배추",
+      "ym": "2026-03",
+      "user_info": {
+        "applicant": "지역농협"
+      }
+    }
+  },
+  "status": 400,
+  "response": {
+    "function": "/api/eligibility",
+    "ok": false,
+    "error": "입력 형식 오류 - user_info.applicant: 정의되지 않은 항목",
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": null,
+    "warnings": [],
+    "sources": []
+  }
+}

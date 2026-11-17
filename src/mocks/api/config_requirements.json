@@ -1,0 +1,132 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/config/requirements",
+    "body": null
+  },
+  "status": 200,
+  "response": {
+    "function": "get_config",
+    "ok": true,
+    "error": null,
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06",
+    "result": {
+      "season": "2025/26",
+      "is_latest_announced": true,
+      "data": {
+        "requirements": [
+          {
+            "id": "R01",
+            "field": "applicant_type",
+            "rule": "도내 지역농협 또는 영농조합법인",
+            "check": "in",
+            "values": [
+              "지역농협",
+              "영농조합법인"
+            ],
+            "source": "plan p1 Ⅱ; notice_draft 1항"
+          },
+          {
+            "id": "R02",
+            "field": "ship_destination",
+            "rule": "도외 도매시장(산지공판장 포함)으로 출하",
+            "check": "in",
+            "values": [
+              "도외 도매시장",
+              "산지공판장"
+            ],
+            "source": "plan p1 Ⅱ; notice_draft 1항"
+          },
+          {
+            "id": "R03",
+            "field": "years_since_established",
+            "rule": "신청일 기준 법인등기부등본상 설립일 1년 이상 경과",
+            "check": ">=",
+            "value": 1,
+            "source": "notice_draft 지원요건 ①"
+          },
+          {
+            "id": "R04",
+            "field": "hq_in_jeju",
+            "rule": "본점 소재지가 도내에 등록",
+            "check": "==",
+            "value": true,
+            "source": "notice_draft 지원요건 ①"
+          },
+          {
+            "id": "R05",
+            "field": "total_capital_won",
+            "rule": "총출자금 1억원 이상",
+            "check": ">=",
+            "value": 100000000,
+            "source": "notice_draft 지원요건 ②"
+          },
+          {
+            "id": "R06",
+            "field": "has_financial_statements",
+            "rule": "재무제표 등을 통한 매출 증빙 가능",
+            "check": "==",
+            "value": true,
+            "source": "notice_draft 지원요건 ②"
+          },
+          {
+            "id": "R07",
+            "field": "no_local_tax_arrears",
+            "rule": "지방세 등 체납액 없음, 관련 법령에 맞게 설립된 법인",
+            "check": "==",
+            "value": true,
+            "source": "notice_draft 지원요건 ③"
+          },
+          {
+            "id": "R08",
+            "field": "farm_business_registered",
+            "rule": "(영농조합법인만) 농업경영체 등록 법인",
+            "check": "==",
+            "value": true,
+            "applies_to": "영농조합법인",
+            "source": "notice_draft 지원요건 ④"
+          },
+          {
+            "id": "R09",
+            "field": "farmer_members",
+            "rule": "(영농조합법인만) 조합원 5인 이상 농업인",
+            "check": ">=",
+            "value": 5,
+            "applies_to": "영농조합법인",
+            "source": "plan p1 Ⅱ"
+          },
+          {
+            "id": "R10",
+            "field": "records_match",
+            "rule": "출하내역(출하자·생산자·출하물량)과 도매시장 경매(거래)내역 일치. 확인이 어려운 물량은 지원 불가",
+            "check": "==",
+            "value": true,
+            "source": "notice_draft 지원요건 ⑤"
+          },
+          {
+            "id": "R11",
+            "field": "self_fund_member",
+            "rule": "품목별 자조금 가입 농가의 출하분만 지원 ('25년부터 미가입 농가 제외)",
+            "check": "==",
+            "value": true,
+            "source": "plan p2"
+          },
+          {
+            "id": "R12",
+            "field": "ship_month",
+            "rule": "출하 월이 품목별 지원범위 월에 포함 (가락시장 월평균 ≤ 손익분기점)",
+            "check": "price_condition",
+            "source": "plan p3; notice_draft 2항"
+          }
+        ]
+      },
+      "conflicts": []
+    },
+    "warnings": [],
+    "sources": [
+      "2026년 주요 농산물 물류비 지원사업 추진계획(안)",
+      "추진계획(안) 붙임2 사업대상자 모집 공고문(안), 2026.4.14. 자"
+    ]
+  }
+}

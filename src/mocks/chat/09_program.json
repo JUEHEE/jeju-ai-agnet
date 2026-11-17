@@ -1,0 +1,114 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "신청 기간이 언제예요?",
+    "context": {
+      "item": "양배추"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "공식 공고 내용으로 정리했어요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "program",
+          "title": "물류비 지원사업 안내",
+          "subtitle": "2025/26 시즌 공고 기준",
+          "facts": [
+            {
+              "label": "지원 내용",
+              "display": "도외 도매시장 출하 해상운송비의 50%"
+            },
+            {
+              "label": "신청 기간",
+              "display": "4월 14일 또는 4월 21일 ~ 4월 28일 (시작일 확인 필요)"
+            },
+            {
+              "label": "신청 방법",
+              "display": "제주특별자치도 감귤유통과 방문 또는 우편 (마감일 근무시간 내 도착분)"
+            },
+            {
+              "label": "문의",
+              "display": "감귤유통과 064-710-3272"
+            }
+          ],
+          "rows": [
+            {
+              "item": "양배추",
+              "spec": "8kg 망",
+              "unit_price": "kg당 23원",
+              "bep": "6,116원"
+            },
+            {
+              "item": "월동무",
+              "spec": "20kg 상자",
+              "unit_price": "kg당 16원",
+              "bep": "11,820원"
+            },
+            {
+              "item": "당근",
+              "spec": "20kg 상자",
+              "unit_price": "kg당 16원",
+              "bep": "20,771원"
+            },
+            {
+              "item": "조생양파",
+              "spec": "15kg 망",
+              "unit_price": "kg당 14원",
+              "bep": "11,310원"
+            }
+          ],
+          "notes": [
+            "신청 기간 등 일부 내용은 문서마다 달라서 최종 공고로 꼭 확인해 주세요.",
+            "신청은 지역농협·영농조합법인이 하고, 지원금은 출하한 농가에 지급돼요."
+          ],
+          "actions": [
+            {
+              "id": "docs",
+              "label": "서류 보기",
+              "call": {
+                "tool": "get_config",
+                "args": {
+                  "topic": "documents"
+                }
+              }
+            }
+          ],
+          "lead": "공식 공고 내용으로 정리했어요.",
+          "source": {
+            "function": "get_config",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06"
+          }
+        }
+      }
+    ],
+    "suggestions": [
+      "어떤 서류가 필요해요?",
+      "이번 달 지원받을 수 있나요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "get_config",
+        "args": {
+          "topic": "items"
+        }
+      },
+      {
+        "name": "get_config",
+        "args": {
+          "topic": "schedule"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "request": {
+    "session_id": "demo-session",
+    "message": "요즘 양배추 시세 어때요?",
+    "context": {
+      "item": "양배추"
+    }
+  },
+  "response": {
+    "ok": true,
+    "error": null,
+    "session_id": "demo-session",
+    "messages": [
+      {
+        "type": "text",
+        "text": "가락시장 거래 기록으로 정리했어요."
+      },
+      {
+        "type": "card",
+        "card": {
+          "type": "market",
+          "title": "양배추 가락시장 시세",
+          "subtitle": "10월 31일 기준 · 8kg 단위",
+          "facts": [
+            {
+              "label": "최근 거래일",
+              "display": "10월 31일"
+            },
+            {
+              "label": "최근 가격",
+              "display": "6,732원"
+            },
+            {
+              "label": "이달 평균",
+              "display": "7,869원"
+            }
+          ],
+          "chart": {
+            "kind": "line",
+            "x": [
+              "2025-11",
+              "2025-12",
+              "2026-01",
+              "2026-02",
+              "2026-03",
+              "2026-04",
+              "2026-05",
+              "2026-06",
+              "2026-07",
+              "2026-08",
+              "2026-09",
+              "2026-10"
+            ],
+            "series": [
+              {
+                "name": "공식 기준 추정",
+                "values": [
+                  4983,
+                  5739,
+                  5667,
+                  6750,
+                  4765,
+                  3081,
+                  3560,
+                  3531,
+                  5104,
+                  4275,
+                  5750,
+                  8956
+                ]
+              },
+              {
+                "name": "공식 월평균",
+                "values": [
+                  5180,
+                  5738,
+                  5744,
+                  6867,
+                  4430,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              }
+            ],
+            "reference_line": {
+              "name": "지원 기준",
+              "values": [
+                6116,
+                6116,
+                6116,
+                6116,
+                6116,
+                6116,
+                6116,
+                6116,
+                null,
+                null,
+                null,
+                null
+              ]
+            }
+          },
+          "notes": [],
+          "lead": "가락시장 거래 기록으로 정리했어요.",
+          "source": {
+            "function": "get_market_data",
+            "data_end": "2026-10-31",
+            "model_version": "ewm3-2025-06"
+          }
+        }
+      }
+    ],
+    "suggestions": [
+      "이번 달 지원받을 수 있나요?",
+      "요즘 거래량은 어때요?"
+    ],
+    "tool_calls": [
+      {
+        "name": "get_market_data",
+        "args": {
+          "item": "양배추",
+          "level": "status"
+        }
+      },
+      {
+        "name": "get_market_data",
+        "args": {
+          "item": "양배추",
+          "level": "monthly",
+          "start": "2025-11",
+          "end": "2026-10"
+        }
+      }
+    ],
+    "data_end": "2026-10-31",
+    "model_version": "ewm3-2025-06"
+  }
+}
