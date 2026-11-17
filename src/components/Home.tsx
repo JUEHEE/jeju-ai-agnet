@@ -6,7 +6,7 @@ import { addMonths, mdKR, specLabel, won, ymKR } from "../lib/format";
 import { DISCLAIMER, applyPeriod, plainWarnings, supportBadge } from "../lib/rules";
 import { useApi } from "../lib/useApi";
 import { LineChart, type LinePoint } from "./Charts";
-import { Badge, ErrorBox, ItemPic, Ring, Skeleton } from "./common";
+import { Badge, CheckIcon, ErrorBox, ItemPic, Ring, Skeleton } from "./common";
 
 interface Props {
   item: Item;
@@ -149,24 +149,29 @@ function ReqCard({ requirements }: { requirements: Props["requirements"] }) {
   const req = requirements.data?.result.data.requirements;
   const pick = req ? ["R01", "R03", "R05", "R11"].map((id) => req.find((x) => x.id === id)).filter(Boolean) as Requirement[] : [];
   return (
-    <div className="card">
-      <h3>신청 자격</h3>
-      <ErrorBox msg={requirements.error} />
-      {!req && !requirements.error && <Skeleton />}
-      <ul className="checklist">
-        {pick.map((x) => (
-          <li key={x.id}>
-            <span className={x.id === "R11" ? "warnmark" : "ok"}>{x.id === "R11" ? "!" : "✓"}</span>
-            <span>{x.rule}</span>
-          </li>
-        ))}
-      </ul>
-      <h3 style={{ marginTop: 8 }}>출하 조건</h3>
-      <ul className="checklist">
-        <li><span className="ok">✓</span><span>도외 도매시장(산지공판장 포함) 출하</span></li>
-        <li><span className="ok">✓</span><span>출하 월 공식 월평균이 지원 기준 이하</span></li>
-        <li><span className="ok">✓</span><span>월동무·양배추·당근·조생양파</span></li>
-      </ul>
+    // Figma: "신청 자격" / "출하 조건" 카드 두 장을 위아래로
+    <div style={{ display: "flex", flexDirection: "column", gap: 14, minWidth: 0 }}>
+      <div className="card">
+        <h3>신청 자격</h3>
+        <ErrorBox msg={requirements.error} />
+        {!req && !requirements.error && <Skeleton />}
+        <ul className="checklist">
+          {pick.map((x) => (
+            <li key={x.id}>
+              <CheckIcon kind={x.id === "R11" ? "warn" : "ok"} />
+              <span>{x.rule}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="card" style={{ flex: 1 }}>
+        <h3>출하 조건</h3>
+        <ul className="checklist">
+          <li><CheckIcon /><span>도외 도매시장(산지공판장 포함) 출하</span></li>
+          <li><CheckIcon /><span>출하 월 공식 월평균이 지원 기준 이하</span></li>
+          <li><CheckIcon /><span>월동무·양배추·당근·조생양파</span></li>
+        </ul>
+      </div>
     </div>
   );
 }
@@ -183,25 +188,18 @@ function PriceChart({ item, r }: { item: Item; r?: SupportResult }) {
     <div className="card">
       <div className="row" style={{ flexWrap: "wrap" }}>
         <h3>월별 {item} 가격</h3>
-        <span className="muted">
-          <span style={{ color: "#B0352C", fontWeight: 700 }}>- - 지원 기준 {won(bep)}</span> · 원/{specLabel(item)}
-        </span>
+        <span className="muted">원/{specLabel(item)}</span>
       </div>
       <ErrorBox msg={monthly.error} />
-      {monthly.loading && !monthly.data ? <Skeleton h={200} /> : !monthly.error && <LineChart pts={pts} bep={bep} />}
-      <div className="muted">실선은 지난달까지 공식 가격 추정, 마지막 점은 이번 달 예측과 80% 범위예요.</div>
+      {monthly.loading && !monthly.data ? <Skeleton h={200} /> : !monthly.error && <LineChart pts={pts} bep={bep} bepLabel={`이번 달 지원 기준 ${won(bep)}`} />}
+      <div className="muted">실선은 지난달까지 공식 가격 추정, 점선 끝 점은 이번 달 예측이에요.</div>
     </div>
   );
 }
 
+/** 채소 바구니 그림: Figma 대시보드의 "Vegetable Basket"(node 43:180)을 SVG로 내보낸 것 */
 const Crate = () => (
-  <svg viewBox="0 0 200 90" style={{ width: "100%", maxHeight: 96 }} aria-hidden="true">
-    <rect x="40" y="40" width="120" height="40" rx="4" fill="#D9A066" />
-    <rect x="40" y="52" width="120" height="6" fill="#B07A45" />
-    <rect x="40" y="66" width="120" height="6" fill="#B07A45" />
-    <circle cx="75" cy="34" r="14" fill="#E9D3A6" />
-    <circle cx="100" cy="30" r="15" fill="#B5492F" />
-    <circle cx="125" cy="34" r="13" fill="#E8C98E" />
-    <path d="M135 22l10-12 4 4-9 12z" fill="#6DAF6A" />
-  </svg>
+  <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", minHeight: 120 }}>
+    <img src="/illust/basket.svg" alt="" aria-hidden="true" width={111} height={111} />
+  </div>
 );
