@@ -9,7 +9,7 @@ import { Logo } from "./components/common";
 import { Home } from "./components/Home";
 import { Results } from "./components/Results";
 import { dateKR } from "./lib/format";
-import { SHORT, plainWarnings, supportBadge, tone } from "./lib/rules";
+import { SERVICE_NAME, SHORT, plainWarnings, supportBadge, tone } from "./lib/rules";
 import { useApi } from "./lib/useApi";
 
 type View = "home" | "results" | "apply";
@@ -56,12 +56,11 @@ export default function App() {
     <div className="app">
       <aside className="rail" aria-label="메뉴">
         <Logo className="logo" />
+        <div className="brand railname">{SERVICE_NAME}</div>
         <nav className="nav">
           <NavBtn label="홈" on={view === "home"} onClick={() => setView("home")} icon={<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />} />
-          <NavBtn label="검색" disabled icon={<><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></>} />
           <NavBtn label="지난 결과" on={view === "results"} onClick={() => setView("results")} icon={<><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>} />
           <NavBtn label="신청 안내" on={view === "apply"} onClick={() => setView("apply")} icon={<><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M9 8h6M9 12h6M9 16h4" /></>} />
-          <NavBtn label="내 정보" disabled icon={<><circle cx="12" cy="8" r="4" /><path d="M4 21c1-4 4-6 8-6s7 2 8 6" /></>} />
         </nav>
         <div className="bigtext">
           큰 글씨

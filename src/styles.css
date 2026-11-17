@@ -22,7 +22,16 @@ h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
 
 /* 왼쪽 메뉴 */
 .rail { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 16px 8px; position: sticky; top: 14px; height: calc(100vh - 28px); }
-.logo { width: 46px; height: auto; margin-bottom: 14px; }
+.logo { width: 46px; height: auto; margin-bottom: 0; }
+/* 서비스 이름 글씨: 제주한라산체 ("바당"+영문만 남긴 파일, public/fonts/README.md) */
+@font-face {
+  font-family: "Jeju Hallasan";
+  src: url("/fonts/jeju-hallasan-subset.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+.brand { font-family: "Jeju Hallasan", var(--font); font-weight: 400; letter-spacing: 0.02em; color: #e8780c; }
+.railname { font-size: 15px; margin-bottom: 16px; white-space: nowrap; }
 .nav { display: flex; flex-direction: column; gap: 6px; width: 100%; }
 .nav button { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 4px; border-radius: 14px; border: 0; background: none; color: var(--ink-2); font-size: 12px; font-weight: 500; }
 .nav button svg { width: 22px; height: 22px; }
@@ -109,6 +118,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
 .chat { display: flex; flex-direction: column; position: sticky; top: 14px; height: calc(100vh - 28px); overflow: hidden; }
 .chathead { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
 .chathead .t { font-weight: 800; line-height: 1.25; min-width: 0; }
+.chathead .t .brand { font-size: 21px; }
 .chathead .t small { display: block; font-weight: 500; font-size: 11.5px; color: var(--ink-3); }
 .chathead .demo { margin-left: auto; font-size: 11px; white-space: nowrap; }
 .msgs { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
@@ -137,7 +147,7 @@ td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
   .app { grid-template-columns: 1fr; padding: 8px; gap: 10px; }
   .rail { position: static; height: auto; flex-direction: row; padding: 8px; border-radius: 16px; }
   .nav { flex-direction: row; justify-content: space-around; }
-  .logo, .bigtext { display: none; }
+  .logo, .railname, .bigtext { display: none; }
   .main { padding: 14px 16px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { callTool, chat } from "../api/endpoints";
 import type { Card, CardAction, ChatContext } from "../api/types";
 import { toolResultToCard } from "../lib/cards";
-import { DISCLAIMER, SERVICE_NAME, SERVICE_NAME_PENDING, UI, plainWarnings } from "../lib/rules";
+import { DISCLAIMER, SERVICE_NAME, SERVICE_NAME_PENDING, SERVICE_TAGLINE, UI, plainWarnings } from "../lib/rules";
 import { BarChart, LineChart, type LinePoint } from "./Charts";
 import { Badge, Logo } from "./common";
 
@@ -79,8 +79,8 @@ export function Chat({ context }: { context: ChatContext }) {
       <div className="chathead">
         <Logo size={30} />
         <span className="t">
-          {SERVICE_NAME}
-          {SERVICE_NAME_PENDING && <small>서비스 이름 미정 · 임시 표기</small>}
+          <span className="brand">{SERVICE_NAME}</span>
+          <small>{SERVICE_NAME_PENDING ? "서비스 이름 미정 · 임시 표기" : SERVICE_TAGLINE}</small>
         </span>
         {demo && (
           <span className="pill demo" title="채팅 API(/api/agent/chat)가 아직 없어 백엔드가 만든 예시 답변을 보여줘요">

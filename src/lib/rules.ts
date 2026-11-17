@@ -15,6 +15,8 @@ export const UI = ui as {
 /** 규칙 10: 서비스 이름 미정이면 임시 문구 */
 export const SERVICE_NAME = UI.service_name ?? UI.service_name_fallback;
 export const SERVICE_NAME_PENDING = UI.service_name == null;
+/** 이름 아래 한 줄 설명 (채팅 머리말) */
+export const SERVICE_TAGLINE = "제주 농산물 물류비 도우미";
 
 /** 규칙 7: 판정이 보이는 화면에 항상 */
 export const DISCLAIMER = "최종 지원 여부는 제주도 공고로 확정돼요. 예측은 판단을 돕는 참고 정보예요.";
